@@ -1,3 +1,4 @@
 .navButton{
     margin: 2vw;
+    grid-area: navArea;
 }
