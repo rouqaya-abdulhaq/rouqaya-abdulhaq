@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import NavButton from '../../UI/navButton/navButton';
+import NavButton from '../../UI/buttons/navButton/navButton';
 import Logo from '../../UI/logo/logo';
 
 import './header.css';
