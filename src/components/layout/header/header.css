@@ -3,4 +3,5 @@
     background: teal;
     grid-template-columns: 20vw 50vw 30vw;
     grid-template-areas: "logoArea . navArea";
+    grid-area: header;
 }
