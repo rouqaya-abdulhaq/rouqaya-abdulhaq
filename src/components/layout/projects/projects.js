@@ -1,13 +1,20 @@
 import React from 'react';
-import Card from '../../UI/card/card';
+import ProjectCard from '../../UI/card/card';
+import './projects.css';
 
-const projects = () => {
+const projects = (props) => {
     return(
-        <div>
+        <main className="projects">
             <div>
-                <Card info="project info" projectLink="project Link" GitHubFiles="GitHub Files"/>
+                <ProjectCard info="project info" 
+                projectLink="project Link" 
+                GitHubFiles="GitHub Files"/>
+
+                <ProjectCard info="project2 info" 
+                projectLink="project2 Link" 
+                GitHubFiles="GitHub Files"/>
             </div>
-        </div>
+        </main>
     );
 }
 

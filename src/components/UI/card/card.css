@@ -3,6 +3,7 @@
     width: 30vw;
     background: slategray;
     display: flex;
+    margin-bottom: 2vh;
 }
 .card img{
     height: 100%;
