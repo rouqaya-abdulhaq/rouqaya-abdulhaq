@@ -1,0 +1,15 @@
+.card{
+    height: 40vh;
+    width: 30vw;
+    background: slategray;
+    display: flex;
+}
+.card img{
+    height: 100%;
+    width: 50%;
+}
+
+.projInfo{
+    display: flex;
+    flex-direction: column;
+}

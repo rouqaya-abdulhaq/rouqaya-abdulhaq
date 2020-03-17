@@ -1,14 +1,11 @@
 import React from 'react';
+import Card from '../../UI/card/card';
 
 const projects = () => {
     return(
         <div>
             <div>
-                project that contains 
-                summary
-                link to project website
-                link to github source code
-                image that represents the website 
+                <Card info="project info" projectLink="project Link" GitHubFiles="GitHub Files"/>
             </div>
         </div>
     );
