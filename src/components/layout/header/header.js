@@ -8,7 +8,7 @@ import './header.css';
 
 const Header = () => {
     return(
-        <div className="header">
+        <header className="header">
             <div className="logoArea">
                 <Link to="/"><Logo/></Link> 
             </div>
@@ -17,7 +17,7 @@ const Header = () => {
                 <Link to="/about-me"><NavButton value={"ABOUT ME"}/></Link> 
                 <Link to="/projects"><NavButton value={"PROJECTS"}/></Link> 
             </div>  
-        </div>
+        </header>
     );
 }
 
