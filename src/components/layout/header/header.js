@@ -15,7 +15,8 @@ const Header = () => {
             <div></div>
             <div className="navArea">
                 <Link to="/about-me"><NavButton value={"ABOUT ME"}/></Link> 
-                <Link to="/projects"><NavButton value={"PROJECTS"}/></Link> 
+                <Link to="/projects"><NavButton value={"PROJECTS"}/></Link>
+                <Link to="/blogs"><NavButton value={"BLOGS"}/></Link>  
             </div>  
         </header>
     );
