@@ -1,6 +1,7 @@
 import React from 'react';
 import './blogs.css';
 import Card from '../../components/UI/card/card';
+import {Link} from 'react-router-dom';
 
 class Blogs extends React.Component{
     constructor(props){
@@ -14,10 +15,10 @@ class Blogs extends React.Component{
         let blogToRender = null
         if(this.state.blogs){
             blogToRender = this.state.blogs.map((blog)=>{
-                return <Card info={blog.info}/>
+                return <Link to="/blogs/blog"><Card info={blog.info}/></Link>
             })
         }
-        
+
         return(
             <main className="blogsPage">
                 <h2>BLOGS :  </h2>
