@@ -1,6 +1,7 @@
 import React from 'react';
 import './blogs.css';
 import Card from '../../components/UI/card/card';
+import AddButton from '../../components/UI/buttons/button/button';
 import {Link} from 'react-router-dom';
 
 class Blogs extends React.Component{
@@ -21,6 +22,7 @@ class Blogs extends React.Component{
 
         return(
             <main className="blogsPage">
+                <Link to="./blogs/addBlog"><AddButton value="Add Blog"/></Link>
                 <h2>BLOGS :  </h2>
                 <div className="blogs">
                     {blogToRender}  

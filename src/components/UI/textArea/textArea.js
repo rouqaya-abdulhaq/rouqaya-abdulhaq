@@ -3,7 +3,7 @@ import './textArea.css';
 
 const textArea = (props) =>{
     return(
-        <textarea>eneter text here</textarea>
+        <textarea onChange={props.onChange}></textarea>
     );
 }
 
