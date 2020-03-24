@@ -1,4 +1,6 @@
 textarea{
-    width: 50vw;
-    height: 20vh;
+    width: 60vw;
+    height: 70vh;
+    resize: none;
+    overflow-y: scroll;
 }

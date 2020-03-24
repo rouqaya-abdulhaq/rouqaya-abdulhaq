@@ -1,7 +1,9 @@
 import React from 'react';
 import TextArea from '../../../components/UI/textArea/textArea';
 import SubmitBtn from '../../../components/UI/buttons/button/button';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import './addBlog.css'
+
 
 class AddBlog extends React.Component{
     constructor(props){
@@ -40,7 +42,7 @@ class AddBlog extends React.Component{
 
     render(){
         return(
-            <main>
+            <main className="addBlogPage">
                 <input onChange={this.titleEventHandler} placeholder="title"></input>
                 <TextArea onChange={this.contentEventHandler}/>
                 <SubmitBtn value="SUBMIT" onClick={this.submitBlogHandler}/>
@@ -49,4 +51,4 @@ class AddBlog extends React.Component{
     }
 }
 
-export default withRouter(AddBlog,);
+export default withRouter(AddBlog);
