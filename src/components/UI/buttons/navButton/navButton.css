@@ -1,4 +1,14 @@
 .navButton{
-    margin: 2vw;
+    margin-top: 8vh;
+    margin-left: 2vw;
     grid-area: navArea;
+    border: none;
+    background: inherit;
+    color: white;
+}
+
+.navButton:hover , .navButton:focus{
+    cursor: pointer;
+    outline: none;
+    border-bottom: solid 2px khaki;
 }
