@@ -10,7 +10,11 @@ const Header = () => {
     return(
         <header className="header">
             <div className="logoArea">
-                <Link to="/"><Logo/></Link> 
+                <Link to="/" style={{textDecoration: 'none' , color : 'white',
+                    fontWeight : 'bolder' , fontFamily : 'Lucidatypewriter, monospace',
+                    fontSize : "1.7rem"}}>
+                    <Logo/>
+                </Link> 
             </div>
             <div></div>
             <div className="navArea">
