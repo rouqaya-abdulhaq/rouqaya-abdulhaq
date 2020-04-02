@@ -29,8 +29,19 @@ li{
 
 li:hover , li:focus{
     color: chartreuse;
+    cursor: pointer;
 }
 
 .unToggle{
   height: 5vh;
+}
+
+.sideBar{
+  cursor: pointer;
+}
+
+.toggle{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5vw;
 }

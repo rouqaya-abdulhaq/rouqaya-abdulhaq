@@ -2,7 +2,6 @@ import React from 'react';
 import SocialLink from "../../UI/link/link";
 import {Link} from 'react-router-dom';
 import Button from '../../UI/buttons/button/button';
-import SideBar from '../sideBar/sideBar';
 import './about.css';
 
 const about = () => {
@@ -22,7 +21,6 @@ const about = () => {
                 and check out some of my projects :
                 <Link to="./projects"><Button value="projects"/></Link>
             </div>
-            <SideBar/>
         </main>
     );
 }

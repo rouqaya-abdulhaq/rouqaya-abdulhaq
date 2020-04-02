@@ -16,3 +16,15 @@
 .layout footer{
     height: 10%;
 }
+
+@media only screen and (min-width : 1024px){
+    .layout .sideBar{
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 1024px){
+    .layout header{
+        display: none;
+    }
+}
