@@ -7,7 +7,7 @@ class Blogs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            blogs : [{info : "first Blog"}],
+            blogs : [{info : "first Blog", title: "title"}],
         }
     }
 
@@ -15,7 +15,7 @@ class Blogs extends React.Component{
         let blogToRender = null
         if(this.state.blogs){
             blogToRender = this.state.blogs.map((blog)=>{
-                return <Link to="/blogs/blog"><Card info={blog.info}/></Link>
+                return <Link to="/blogs/blog" key={blog.title}><Card info={blog.info}/></Link>
             })
         }
 
