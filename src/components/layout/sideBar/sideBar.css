@@ -6,7 +6,6 @@ ul{
     height: fit-content;
     display: flex;
     flex-direction: column;
-    position: absolute;
     top: 0;
     left: 0;
     background: rgb(207, 179, 179);
@@ -44,4 +43,23 @@ li:hover , li:focus{
   display: flex;
   justify-content: flex-start;
   padding-left: 5vw;
+  transition: all 0.5s;
+  -webkit-transition: all 0.50s;
+  z-index: 111;
+  position: absolute;
+}
+
+.toggle:hover , .toggle:focus{
+  transform: translateX(-15vw);
+  color: rgb(0, 255, 42);
+}
+
+#menu{
+  top: 0;
+  left: -100%;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  z-index: 11;
 }
