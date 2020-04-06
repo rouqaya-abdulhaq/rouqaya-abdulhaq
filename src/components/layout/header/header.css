@@ -32,3 +32,13 @@
   background-image:
     radial-gradient(circle at 10px 15px, wheat 12px, transparent 13px);
 }
+
+.header .navArea{
+  grid-area: navArea;
+}
+
+@media (max-width : 1024px){
+  .header{
+    grid-template-columns: 40vw 10vw 50vw;
+  }
+}

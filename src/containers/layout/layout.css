@@ -17,14 +17,20 @@
     height: 10%;
 }
 
-@media only screen and (min-width : 1024px){
+@media only screen and (min-width : 500px){
     .layout .sideBar{
         display: none;
     }
 }
 
-@media only screen and (max-width : 1024px){
+@media only screen and (max-width : 500px){
     .layout header{
         display: none;
+    }
+}
+
+@media(max-width : 1024px) {
+    .layout header{
+        height: 15%;
     }
 }

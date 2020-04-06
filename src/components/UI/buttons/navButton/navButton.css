@@ -1,7 +1,6 @@
 .navButton{
     margin-top: 8vh;
     margin-left: 2vw;
-    grid-area: navArea;
     border: none;
     background: inherit;
     color: white;
@@ -11,4 +10,13 @@
     cursor: pointer;
     outline: none;
     border-bottom: solid 2px khaki;
+}
+
+@media (max-width : 1024px){
+    .navButton{
+        font-size: 1.2rem;
+        font-weight: bolder;
+        margin-left: 0.5vw;
+        margin-top: 6vh;
+    }
 }
