@@ -8,10 +8,12 @@ const sideBar = (props) =>{
 
         let showSideBar = props.showSideBar ? {left : 0} : {};
 
+        const toggleStyle = props.showSideBar ? {display : 'none'} : {};
+
         return (
-            <div className="slide">
+            <div className="sideBar">
                 <div className="toggle">
-                    <div onClick={props.toggleSideBarHandler} className="sideBar">|||</div>
+                    <div onClick={props.toggleSideBarHandler}  style={toggleStyle}>|||</div>
                 </div>
                 <div id="menu" style={showSideBar}>
                     <Modal className="modal">
