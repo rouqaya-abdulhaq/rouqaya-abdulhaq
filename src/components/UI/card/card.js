@@ -5,10 +5,10 @@ import './card.css';
 
 const card = (props) =>{
     return(
-        <div className="card">
+        <div className="card" onClick={props.onClick}>
             <img src={pic} alt="PROJECT"/>
             <div className="projInfo">
-                <p>{props.info}</p>
+                <p>{props.title}</p>
                 <ProjectLink to={props.projectLink}/>
                 <ProjectLink to={props.GitHubFiles}/>
             </div>
