@@ -11,12 +11,12 @@ class Blogs extends React.Component{
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.fetchBlogs();
     }
 
     goToBlog = (queryParam) =>{
-        this.props.history.push(`/blogs/blog?blog=${queryParam}`);
+        this.props.history.push(`/blogs/blog?title=${queryParam}`);
     }
 
     fetchBlogs = () =>{
