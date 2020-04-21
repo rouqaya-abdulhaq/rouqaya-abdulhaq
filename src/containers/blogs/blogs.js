@@ -7,13 +7,31 @@ class Blogs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            blogs : [{content : "first Blog", title: "roro"},
-                    {content : "words", title : "soso"}],
+            blogs : [],
         }
+    }
+
+    componentWillMount(){
+        this.fetchBlogs();
     }
 
     goToBlog = (queryParam) =>{
         this.props.history.push(`/blogs/blog?blog=${queryParam}`);
+    }
+
+    fetchBlogs = () =>{
+        fetch('http://localhost:8000/loadBlogs?loadCount=0',{
+            method : 'GET',
+            headers : {
+                'Accept': 'application/json',
+            }
+        }).then((res)=>{
+            return res.json();
+        }).then((blogs)=>{
+            this.setState({blogs : blogs});
+        }).catch((err)=>{
+            console.log(err);
+        })
     }
 
     render(){
