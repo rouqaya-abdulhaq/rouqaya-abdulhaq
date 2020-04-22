@@ -38,7 +38,7 @@ class Blogs extends React.Component{
         let blogToRender = null
         if(this.state.blogs){
             blogToRender = this.state.blogs.map((blog)=>{
-                return <Card title={blog.title} onClick={()=>this.goToBlog(blog.title)}/>
+                return <Card key={blog.title} title={blog.title} onClick={()=>this.goToBlog(blog.title)}/>
             })
         }
 
