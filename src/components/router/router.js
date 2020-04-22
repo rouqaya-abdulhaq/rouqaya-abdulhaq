@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route } from 'react-router-dom';
 import LandingPage from '../layout/landing/landing';
 import About from '../layout/about/about';
-import Projects from '../layout/projects/projects';
+import Projects from '../../containers/projects/projects';
 import Blogs from '../../containers/blogs/blogs';
 import Blog from '../blog/blog';
  

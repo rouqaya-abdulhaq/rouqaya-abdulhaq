@@ -9,6 +9,7 @@ const card = (props) =>{
             <img src={pic} alt="PROJECT"/>
             <div className="projInfo">
                 <p>{props.title}</p>
+                <p>{props.info}</p>
                 <ProjectLink to={props.projectLink}/>
                 <ProjectLink to={props.GitHubFiles}/>
             </div>
