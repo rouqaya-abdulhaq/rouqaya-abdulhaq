@@ -1,0 +1,12 @@
+.blogsArea{
+    text-align: start;
+
+}
+
+h4{
+    margin-bottom: 2vh;
+}
+
+.blogsTape{
+    display: flex;
+}

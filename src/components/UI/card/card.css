@@ -4,6 +4,7 @@
     background: slategray;
     display: flex;
     margin-bottom: 2vh;
+    margin-right: 2vw;
 }
 .card img{
     height: 100%;

@@ -1,19 +1,20 @@
 import React from 'react';
-import AboutLink from '../../UI/link/link';
-import BlogLink from '../../UI/link/link';
 import Card from '../../UI/card/card';
+import './landing.css';
 
-const landingPage = () => {
+const landingPage = (props) => {
     return(
         <main>
             <h1>welcome to my online presence</h1>
-            <p>please learn more about my arrogant developer persona</p>
-            <AboutLink to="About me"/>
-            <br/>
-            <BlogLink to="Blogs :"/>
-            <div>four animated blogs tape that runs over and over
-                <Card info="my first blog" />
-            </div>
+            <section className="blogsArea">
+                <h4>Blogs :</h4>
+                <div className="blogsTape">
+                    <Card info="my first blog" /> 
+                    <Card info="my second blog" />
+                    <Card info="my third blog" />
+                    <Card info="my fourth blog" /> 
+                </div>
+            </section>
         </main>
     );
 }
