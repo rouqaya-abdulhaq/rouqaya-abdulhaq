@@ -15,12 +15,12 @@ const landingPage = (props) => {
                   <div className="secondAnimation">
                         <Card info="my second blog" />
                     </div>
-                   {/*} <div className="thirdAnimation">
+                    <div className="thirdAnimation">
                         <Card info="my third blog" />
                     </div>
                     <div className="fourthAnimation">
                         <Card info="my fourth blog" />
-                    </div>  */}
+                    </div> 
                 </div>
             </section>
         </main>

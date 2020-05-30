@@ -31,11 +31,11 @@ h4{
 }
 
 .blogsTape div.thirdAnimation{
-    animation: cycleThree 20s linear infinite;
+    animation: cycleThree 30s linear infinite;
 }
 
 .blogsTape div.fourthAnimation{
-    animation: cycleFour 15s linear infinite;
+    animation: cycleFour 30s linear infinite;
 }
 
 @keyframes cycle{
@@ -44,24 +44,16 @@ h4{
 }
 
 @keyframes cycleTwo{
-   0% {right: 60vw;}
-   100% {right: -62vw;}
+   0% {right: 70vw;}
+   100% {right: -60vw;}
 }
 
-/*@keyframes cycleThree{
-    from{
-        left: 0vw;
-    }
-    to{
-        left: 100vw;
-    }
+@keyframes cycleThree{
+    0% {right: 40vw;}
+    100% {right: -90vw;}
 }
 
 @keyframes cycleFour{
-    from{
-        left: 0vw;
-    }
-    to{
-        left: 100vw;
-    }
-} */
+    0% {right: 10vw;}
+    100% {right: -120vw;}
+}
