@@ -9,10 +9,18 @@ const landingPage = (props) => {
             <section className="blogsArea">
                 <h4>Blogs :</h4>
                 <div className="blogsTape">
-                    <Card info="my first blog" /> 
-                    <Card info="my second blog" />
-                    <Card info="my third blog" />
-                    <Card info="my fourth blog" /> 
+                    <div className="firstAnimation">
+                        <Card info="my first blog" />
+                    </div>
+                    {/* <div className="secondAnimation">
+                        <Card info="my second blog" />
+                    </div>
+                    <div className="thirdAnimation">
+                        <Card info="my third blog" />
+                    </div>
+                    <div className="fourthAnimation">
+                        <Card info="my fourth blog" />
+                    </div>  */}
                 </div>
             </section>
         </main>

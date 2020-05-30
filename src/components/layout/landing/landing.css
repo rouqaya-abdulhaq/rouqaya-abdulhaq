@@ -9,4 +9,63 @@ h4{
 
 .blogsTape{
     display: flex;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 }
+
+.firstAnimation, .secondAnimation, .thirdAnimation, .fourthAnimation{
+    position: fixed;
+}
+
+.blogsTape > .card{
+    position: absolute;
+}
+
+.blogsTape div.firstAnimation{
+    animation: cycle 30s linear infinite;
+}
+
+.blogsTape div.secondAnimation{
+    animation: cycleTwo 25s linear infinite;
+}
+
+.blogsTape div.thirdAnimation{
+    animation: cycleThree 20s linear infinite;
+}
+
+.blogsTape div.fourthAnimation{
+    animation: cycleFour 15s linear infinite;
+}
+
+@keyframes cycle{
+    0% {right : 100vw;}
+    100% {right: -30vw;}
+}
+
+/* @keyframes cycleTwo{
+    from{
+        left: 0vw;
+    }
+    to{
+        left: 100vw;
+    }
+}
+
+@keyframes cycleThree{
+    from{
+        left: 0vw;
+    }
+    to{
+        left: 100vw;
+    }
+}
+
+@keyframes cycleFour{
+    from{
+        left: 0vw;
+    }
+    to{
+        left: 100vw;
+    }
+} */
