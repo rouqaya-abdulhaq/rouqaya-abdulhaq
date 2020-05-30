@@ -27,7 +27,7 @@ h4{
 }
 
 .blogsTape div.secondAnimation{
-    animation: cycleTwo 25s linear infinite;
+    animation: cycleTwo 30s linear infinite;
 }
 
 .blogsTape div.thirdAnimation{
@@ -43,16 +43,12 @@ h4{
     100% {right: -30vw;}
 }
 
-/* @keyframes cycleTwo{
-    from{
-        left: 0vw;
-    }
-    to{
-        left: 100vw;
-    }
+@keyframes cycleTwo{
+   0% {right: 60vw;}
+   100% {right: -62vw;}
 }
 
-@keyframes cycleThree{
+/*@keyframes cycleThree{
     from{
         left: 0vw;
     }

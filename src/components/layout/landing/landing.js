@@ -12,10 +12,10 @@ const landingPage = (props) => {
                     <div className="firstAnimation">
                         <Card info="my first blog" />
                     </div>
-                    {/* <div className="secondAnimation">
+                  <div className="secondAnimation">
                         <Card info="my second blog" />
                     </div>
-                    <div className="thirdAnimation">
+                   {/*} <div className="thirdAnimation">
                         <Card info="my third blog" />
                     </div>
                     <div className="fourthAnimation">
