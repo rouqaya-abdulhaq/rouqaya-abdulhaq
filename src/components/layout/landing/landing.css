@@ -16,6 +16,7 @@ h4{
 
 .firstAnimation, .secondAnimation, .thirdAnimation, .fourthAnimation{
     position: fixed;
+    right: 130vw;
 }
 
 .blogsTape > .card{
@@ -28,32 +29,35 @@ h4{
 
 .blogsTape div.secondAnimation{
     animation: cycleTwo 30s linear infinite;
+    animation-delay: 7s;
 }
 
 .blogsTape div.thirdAnimation{
     animation: cycleThree 30s linear infinite;
+    animation-delay: 14s;
 }
 
 .blogsTape div.fourthAnimation{
     animation: cycleFour 30s linear infinite;
+    animation-delay: 21s;
 }
 
 @keyframes cycle{
-    0% {right : 100vw;}
-    100% {right: -30vw;}
+    0% {right : 130vw;}
+    100%{ right: -30vw;}
 }
 
 @keyframes cycleTwo{
-   0% {right: 70vw;}
-   100% {right: -60vw;}
+   0% {right: 130vw;}
+   100% {right: -30vw;}
 }
 
 @keyframes cycleThree{
-    0% {right: 40vw;}
-    100% {right: -90vw;}
+    0% {right: 130vw;}
+    100% {right: -30vw;}
 }
 
 @keyframes cycleFour{
-    0% {right: 10vw;}
-    100% {right: -120vw;}
+    0% {right: 130vw;}
+    100% {right: -30vw;}
 }

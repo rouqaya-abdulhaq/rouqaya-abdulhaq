@@ -20,7 +20,7 @@ const landingPage = (props) => {
                     </div>
                     <div className="fourthAnimation">
                         <Card info="my fourth blog" />
-                    </div> 
+                    </div>
                 </div>
             </section>
         </main>
