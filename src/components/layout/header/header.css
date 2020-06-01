@@ -1,6 +1,5 @@
 .header{
     display: grid;
-    background: teal;
     grid-template-columns: 20vw 50vw 30vw;
     grid-template-areas: "logoArea . navArea";
     grid-area: header;
@@ -17,7 +16,7 @@
   height: 10px;
   background-size: 20px 20px;
   background-image:
-    radial-gradient(circle at 10px -5px, transparent 12px, wheat 13px);
+    radial-gradient(circle at 10px -5px, transparent 12px, #342b38 13px);
 }
 
 .header::after{
@@ -30,7 +29,7 @@
   height: 15px;
   background-size: 40px 20px;
   background-image:
-    radial-gradient(circle at 10px 15px, wheat 12px, transparent 13px);
+    radial-gradient(circle at 10px 15px, #342b38 12px, transparent 13px);
 }
 
 .header .navArea{

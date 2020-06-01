@@ -7,14 +7,18 @@
 
 .layout header{
     height: 20vh;
+    background: #ff9595;
 }
 
 .layout main{
     height: 85vh;
+    background: #342b38;
 }
 
 .layout footer{
     height: 10vh;
+    background: #342b38;
+    color: white;
 }
 
 @media only screen and (min-width : 550px){
