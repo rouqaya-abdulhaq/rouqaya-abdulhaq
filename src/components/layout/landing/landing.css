@@ -32,37 +32,37 @@ h1{
 
 .blogsTape div.secondAnimation{
     animation: cycleTwo 30s linear infinite;
-    animation-delay: 7s;
+    animation-delay: 7.5s;
 }
 
 .blogsTape div.thirdAnimation{
     animation: cycleThree 30s linear infinite;
-    animation-delay: 14s;
+    animation-delay: 15s;
 }
 
 .blogsTape div.fourthAnimation{
     animation: cycleFour 30s linear infinite;
-    animation-delay: 21s;
+    animation-delay: 22.5s;
 }
 
 @keyframes cycle{
-    0% {right : 130vw;}
-    100%{ right: -30vw;}
+    0% {right : 100vw;}
+    100%{ right: -32vw;}
 }
 
 @keyframes cycleTwo{
-   0% {right: 130vw;}
-   100% {right: -30vw;}
+   0% {right: 100vw;}
+   100% {right: -32vw;}
 }
 
 @keyframes cycleThree{
-    0% {right: 130vw;}
-    100% {right: -30vw;}
+    0% {right: 100vw;}
+    100% {right: -32vw;}
 }
 
 @keyframes cycleFour{
-    0% {right: 130vw;}
-    100% {right: -30vw;}
+    0% {right: 100vw;}
+    100% {right: -32vw;}
 }
 
 @media only screen and (max-width : 550px){
