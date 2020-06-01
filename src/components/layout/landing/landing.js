@@ -7,7 +7,6 @@ const landingPage = (props) => {
         <main>
             <h1>welcome to my online presence</h1>
             <section className="blogsArea">
-                <h4>Blogs :</h4>
                 <div className="blogsTape">
                     <div className="firstAnimation">
                         <Card info="my first blog" />

@@ -6,15 +6,15 @@
 }
 
 .layout header{
-    height: 20%;
+    height: 20vh;
 }
 
 .layout main{
-    height: 78%;
+    height: 85vh;
 }
 
 .layout footer{
-    height: 10%;
+    height: 10vh;
 }
 
 @media only screen and (min-width : 550px){

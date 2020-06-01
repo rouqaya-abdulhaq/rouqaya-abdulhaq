@@ -3,8 +3,9 @@
 
 }
 
-h4{
-    margin-bottom: 2vh;
+h1{
+    margin: 3%;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 .blogsTape{
@@ -12,6 +13,7 @@ h4{
     position: relative;
     height: 100%;
     overflow: hidden;
+    margin-top: 10vh;
 }
 
 .firstAnimation, .secondAnimation, .thirdAnimation, .fourthAnimation{
@@ -60,4 +62,10 @@ h4{
 @keyframes cycleFour{
     0% {right: 130vw;}
     100% {right: -30vw;}
+}
+
+@media only screen and (max-width : 550px){
+    h1{
+        margin: 7%;
+    }
 }
