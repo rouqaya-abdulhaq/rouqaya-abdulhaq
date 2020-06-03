@@ -4,9 +4,14 @@ import ProjectLink from '../link/link';
 import './card.css';
 
 const card = (props) =>{
+    let img = null;
+    if(pic){
+        img = <img src={pic} alt="PROJECT"/>
+    }
+
     return(
         <div className="card" onClick={props.onClick}>
-            <img src={pic} alt="PROJECT"/>
+            {img}
             <div className="projInfo">
                 <p>{props.title}</p>
                 <p>{props.info}</p>
