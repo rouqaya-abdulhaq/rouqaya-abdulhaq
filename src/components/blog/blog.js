@@ -36,7 +36,7 @@ const Blog = withRouter(({history,location, ...props}) =>{
     })
     
     return(
-        <main>
+        <main className="blog">
             <BackBtn onClick={backEventHandler} value="back"/>
             <div>
                 <h1>{blog.title}</h1>

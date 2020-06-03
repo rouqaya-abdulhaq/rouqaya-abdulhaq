@@ -27,7 +27,7 @@ li{
 }
 
 li:hover , li:focus{
-    color: chartreuse;
+    color: #bbf1c8;
     cursor: pointer;
 }
 
@@ -43,7 +43,8 @@ li:hover , li:focus{
   display: flex;
   justify-content: flex-start;
   padding-left: 5vw;
-  background: rosybrown;
+  background: #342b38;
+  color: white;
   height: 8vw;
   width: 100vw;
   font-weight: bolder;

@@ -1,0 +1,26 @@
+.blog{
+    overflow-y: scroll;
+}
+
+.blog::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #80bdab;
+}
+
+.blog::-webkit-scrollbar
+{
+    width: 12px;
+    border-radius: 10px;
+	background-color: #80bdab;
+}
+
+.blog::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #bbf1c8;
+}

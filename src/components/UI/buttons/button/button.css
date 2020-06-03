@@ -1,3 +1,19 @@
 .button{
     margin: 0.5vw;
+    border-radius: 25%;
+    height: 5vh;
+    width: 6vw;
+    font-weight: bold;
+    font-family: inherit;
+    background: #80bdab;
+    border-color: #bbf1c8;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.button:hover, .button:focus{
+    background: #bbf1c8;
+    border-color: #80bdab;
+    color: black;
 }
