@@ -1,6 +1,8 @@
 footer{
     display: flex;
     justify-content: center;
-    background: peru;
     grid-area: footer;
+    padding-top: 2vh;
+    border-top: rgb(94, 88, 88,0.5) solid 1px;
 }
+

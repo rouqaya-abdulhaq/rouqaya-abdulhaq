@@ -5,7 +5,7 @@ import './footer.css';
 const footer = () => {
     return(
         <footer>
-            <div className="license">license</div>
+            <div className="license">MIT Copyright © 2020 Rouqaya Abdulhaq</div>
             <div className="socialMediaLinks">
                 <Link to="Linked In"/>
                 <Link to="Twitter"/>
