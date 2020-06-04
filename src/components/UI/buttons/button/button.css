@@ -2,7 +2,7 @@
     margin: 0.5vw;
     border-radius: 25%;
     height: 5vh;
-    width: 6vw;
+    width: fit-content;
     font-weight: bold;
     font-family: inherit;
     background: #80bdab;
