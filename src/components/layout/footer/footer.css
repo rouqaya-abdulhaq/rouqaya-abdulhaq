@@ -6,3 +6,7 @@ footer{
     border-top: rgb(94, 88, 88,0.5) solid 1px;
 }
 
+footer a{
+    margin-left: 2vw;
+}
+
