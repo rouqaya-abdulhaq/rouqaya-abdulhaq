@@ -1,8 +1,8 @@
 import React from 'react';
 import SocialLink from '../../UI/socialLink/socialLink';
 import github from '../../../images/github.png';
-import twitter from '../../../images/twitter.png'
-import linkedin from '../../../images/linkedin.png'
+import twitter from '../../../images/twitter.png';
+import linkedin from '../../../images/linkedin.png';
 import './footer.css';
 
 const footer = () => {

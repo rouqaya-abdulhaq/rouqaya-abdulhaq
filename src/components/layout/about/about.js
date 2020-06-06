@@ -1,7 +1,10 @@
 import React from 'react';
-import SocialLink from "../../UI/link/link";
+import SocialLink from "../../UI/socialLink/socialLink";
 import {Link} from 'react-router-dom';
 import Button from '../../UI/buttons/button/button';
+import github from '../../../images/github.png';
+import twitter from '../../../images/twitter.png';
+import linkedin from '../../../images/linkedin.png';
 import './about.css';
 
 const about = () => {
@@ -21,9 +24,9 @@ const about = () => {
             </p>
             <div>
                 you can find me here on the internet :
-                <SocialLink to="Twitter"/>
-                <SocialLink to="Linked In"/>
-                <SocialLink to="GitHub"/>
+                <SocialLink url="https://github.com/rouqaya-abdulhaq" title="github" img={github}/>
+                <SocialLink url="https://twitter.com/RouqayaAbdulhaq" title="twitter" img={twitter}/>
+                <SocialLink url="https://www.linkedin.com/in/rouqaya-abdulhaq-91080116a/" title="linkedin" img={linkedin}/>
             </div>
             <div>
                 and check out some of my projects :
