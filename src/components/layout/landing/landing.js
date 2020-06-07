@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {withRouter} from 'react-router-dom'
-import Card from '../../UI/card/card';
+import {mapBlogsToCards} from '../../../utilities/utilities';
 import './landing.css';
 
 const LandingPage = (props) => {
@@ -25,15 +25,9 @@ const LandingPage = (props) => {
         });
     });
 
-    const goToBlog = (queryParam) =>{
-        props.history.push(`/blogs/blog?title=${queryParam}`);
-    }
-
     let blogsToRender = [];
     if(blogs){
-        blogsToRender = blogs.map((blog)=>{
-            return <Card key={blog.title} title={blog.title} onClick={()=>goToBlog(blog.title)} />
-        })
+        blogsToRender = mapBlogsToCards(blogs, props.history);
     } 
 
     return(

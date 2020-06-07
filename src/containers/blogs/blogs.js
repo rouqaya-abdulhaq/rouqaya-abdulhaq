@@ -1,7 +1,7 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+import {mapBlogsToCards} from '../../utilities/utilities';
 import './blogs.css';
-import Card from '../../components/UI/card/card';
-import {withRouter} from 'react-router-dom'
 
 class Blogs extends React.Component{
     constructor(props){
@@ -14,11 +14,7 @@ class Blogs extends React.Component{
     componentDidMount(){
         this.fetchBlogs();
     }
-
-    goToBlog = (queryParam) =>{
-        this.props.history.push(`/blogs/blog?title=${queryParam}`);
-    }
-
+    
     fetchBlogs = () =>{
         fetch('http://localhost:8000/loadBlogs?loadCount=0',{
             method : 'GET',
@@ -37,9 +33,7 @@ class Blogs extends React.Component{
     render(){
         let blogToRender = null
         if(this.state.blogs){
-            blogToRender = this.state.blogs.map((blog)=>{
-                return <Card key={blog.title} title={blog.title} onClick={()=>this.goToBlog(blog.title)}/>
-            })
+            blogToRender = mapBlogsToCards(this.state.blogs,this.props.history);
         }
 
         return(
