@@ -1,5 +1,6 @@
 .blog{
     overflow-y: scroll;
+    color: white;
 }
 
 .blog::-webkit-scrollbar-track

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BackBtn from '../UI/buttons/button/button';
 import {withRouter} from 'react-router-dom';
 import queryString from 'query-string';
+import './blog.css';
 
 
 const Blog = withRouter(({history,location, ...props}) =>{
@@ -41,7 +42,7 @@ const Blog = withRouter(({history,location, ...props}) =>{
             <div>
                 <h1>{blog.title}</h1>
                 <p>
-                    {blog.contenet}
+                    {blog.content}
                 </p> 
             </div>
         </main>
