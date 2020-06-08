@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BackBtn from '../UI/buttons/button/button';
 import {withRouter} from 'react-router-dom';
 import queryString from 'query-string';
+import twitter from '../../images/twitter.png';
 import './blog.css';
 
 
@@ -44,6 +45,13 @@ const Blog = withRouter(({history,location, ...props}) =>{
                 <p>
                     {blog.content}
                 </p> 
+                <div className="share">
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
+                        data-show-count="false" title="tweet">
+                            <img src={twitter} alt="tweet"/>
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                </div>
             </div>
         </main>
     );
