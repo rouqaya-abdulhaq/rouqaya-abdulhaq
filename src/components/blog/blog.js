@@ -3,6 +3,7 @@ import BackBtn from '../UI/buttons/button/button';
 import {withRouter} from 'react-router-dom';
 import queryString from 'query-string';
 import twitter from '../../images/twitter.png';
+import facebook from '../../images/facebook.png';
 import './blog.css';
 
 
@@ -46,6 +47,9 @@ const Blog = withRouter(({history,location, ...props}) =>{
                     {blog.content}
                 </p> 
                 <div className="share">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" title="share">
+                    <img src={facebook} alt="share on facebook"/>
+                    </a>
                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
                         data-show-count="false" title="tweet">
                             <img src={twitter} alt="tweet"/>
