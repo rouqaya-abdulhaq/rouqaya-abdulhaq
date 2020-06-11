@@ -1,6 +1,9 @@
 .blog{
     overflow-y: scroll;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .blog::-webkit-scrollbar-track
@@ -27,5 +30,8 @@
 }
 
 .blog .share{
-    margin-top: 5vh;
+    margin-top: 10vh;
+    display: flex;
+    width: 10vw;
+    justify-content: space-between;
 }

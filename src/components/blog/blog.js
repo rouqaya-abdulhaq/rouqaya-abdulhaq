@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import BackBtn from '../UI/buttons/button/button';
 import {withRouter} from 'react-router-dom';
+import {FacebookShareButton,TwitterShareButton,LinkedinShareButton} from 'react-share';
 import queryString from 'query-string';
 import twitter from '../../images/twitter.png';
 import facebook from '../../images/facebook.png';
+import linkedin from '../../images/linkedin.png';
 import './blog.css';
 
 
@@ -47,14 +49,16 @@ const Blog = withRouter(({history,location, ...props}) =>{
                     {blog.content}
                 </p> 
                 <div className="share">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" title="share">
-                    <img src={facebook} alt="share on facebook"/>
-                    </a>
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
-                        data-show-count="false" title="tweet">
-                            <img src={twitter} alt="tweet"/>
-                    </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                    
+                    <FacebookShareButton children={<img src={facebook} alt="share on facebook" title="share"/>} url={window.location.href} 
+                    quote="my blog" hashtag="#blog"/>
+
+                    <TwitterShareButton children={<img src={twitter} alt="tweet" title="tweet"/>} url={window.location.href}
+                    title={blog.title} via="RouqayaAbdulhaq" hashtags={['blog',"development"]}/>
+
+                    <LinkedinShareButton children={<img src={linkedin} alt="share with linkedin" title="share"/>} url={window.location.href}
+                    title={blog.title} source="Rouqaya Abdulhaq"/>
+
                 </div>
             </div>
         </main>
