@@ -1,5 +1,4 @@
 import React from 'react';
-// import pic from'./projectImg.jpg';
 import ProjectLink from '../link/link';
 import './card.css';
 

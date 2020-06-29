@@ -8,6 +8,7 @@ class Blogs extends React.Component{
         super(props);
         this.state = {
             blogs : [],
+            loadCount : 0
         }
     }
 
@@ -16,15 +17,17 @@ class Blogs extends React.Component{
     }
     
     fetchBlogs = () =>{
-        fetch('http://localhost:8000/loadBlogs?loadCount=0',{
+        fetch(`http://localhost:8000/loadBlogs?loadCount=${this.state.loadCount}`,{
             method : 'GET',
             headers : {
                 'Accept': 'application/json',
             }
         }).then((res)=>{
             return res.json();
-        }).then((blogs)=>{
-            this.setState({blogs : blogs});
+        }).then((res)=>{
+            if(res.success){
+                this.setState({blogs : res.blogs});
+            }
         }).catch((err)=>{
             console.log(err);
         })
