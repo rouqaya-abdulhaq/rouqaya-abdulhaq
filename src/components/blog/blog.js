@@ -22,16 +22,18 @@ const Blog = withRouter(({history,location, ...props}) =>{
 
     useEffect(() => {
         let mounted = true;
-        fetch(`http://localhost:8000/loadBlog?blogTitle=${values.title}`,{
+        fetch(`http://localhost:8000/loadBlog?blogId=${values.id}`,{
         method : 'GET',
         headers : {
             'Accept': 'application/json',
         }
         }).then((res)=>{
             return res.json();
-        }).then((blog) => {
+        }).then((res) => {
             if(mounted){
-                setBlog(blog);
+                if(res.success){
+                    setBlog(res.blog); 
+                }
             }
         }).catch((err)=>{
             setError(err);
