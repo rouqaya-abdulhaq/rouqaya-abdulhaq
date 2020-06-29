@@ -24,8 +24,10 @@ class projects extends React.Component {
             }
         }).then((res)=>{
             return res.json();
-        }).then((projects)=>{
-            this.setState({projects : projects});
+        }).then((res)=>{
+            if(res.success){
+                this.setState({projects : res.projects});
+            }
         }).catch((err)=>{
             console.log(err);
         });
@@ -36,8 +38,8 @@ class projects extends React.Component {
         if(this.state.projects){
             projectToRender = this.state.projects.map((project)=>{
                 return <ProjectCard info={project.info} projectLink={project.url}
-                GitHubFiles={project.githubUrl} title={project.title} imgUrl={project.imgUrl}
-                key={project.title}/>
+                GitHubFiles={project.github} title={project.title} imgPath={project.img_url}
+                key={project.id}/>
             })
         }
 
