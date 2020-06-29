@@ -1,12 +1,12 @@
 import React from 'react';
-import pic from'./projectImg.jpg';
+// import pic from'./projectImg.jpg';
 import ProjectLink from '../link/link';
 import './card.css';
 
 const card = (props) =>{
     let img = null;
-    if(pic){
-        img = <img src={pic} alt="PROJECT"/>
+    if(props.imgPath){
+        img = <img src={props.imgPath} alt="thumbnail"/>
     }
 
     return(

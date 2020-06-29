@@ -17,8 +17,10 @@ const LandingPage = (props) => {
         }
         }).then((res)=>{
             return res.json();
-        }).then((blogs) => {
-            setBlogs(blogs);
+        }).then((res) => {
+            if(res.success){
+                setBlogs(res.blogs);
+            }
         }).catch((err)=>{
             setError(err);
             console.log(hasError);
