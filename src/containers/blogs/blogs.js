@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {mapBlogsToCards} from '../../utilities/utilities';
+import Button from '../../components/UI/buttons/button/button';
 import './blogs.css';
 
 class Blogs extends React.Component{
@@ -12,10 +13,11 @@ class Blogs extends React.Component{
         }
     }
 
+
     componentDidMount(){
         this.fetchBlogs();
     }
-    
+
     fetchBlogs = () =>{
         fetch(`http://localhost:8000/loadBlogs?loadCount=${this.state.loadCount}`,{
             method : 'GET',
@@ -33,6 +35,18 @@ class Blogs extends React.Component{
         })
     }
 
+    getNextBlogs = () =>{
+        this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
+        this.fetchBlogs();
+    }
+
+    getPrevBlogs = () =>{
+        if(this.state.loadCount > 0){
+            this.setState(prevState => {return {loadCount: prevState.loadCount -= 1}});
+            this.fetchBlogs();
+        }
+    }
+
     render(){
         let blogToRender = null
         if(this.state.blogs){
@@ -43,7 +57,10 @@ class Blogs extends React.Component{
             <main className="blogsPage">
                 <h2>BLOGS :  </h2>
                 <div className="blogs">
-                    {blogToRender}  
+                    {blogToRender}
+                    <Button onClick={this.getPrevBlogs} value={"<"} 
+                    disapled={this.state.loadCount <= 0 ? "true" : null}/> 
+                    <Button onClick={this.getNextBlogs} value={">"}/>   
                 </div>
             </main>
         );

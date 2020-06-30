@@ -17,3 +17,9 @@
     border-color: #80bdab;
     color: black;
 }
+
+.disapled{
+    background: grey !important;
+    cursor: not-allowed !important;
+    color: white !important;
+}
