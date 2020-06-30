@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectCard from '../../components/UI/card/card';
+import Button from '../../components/UI/buttons/button/button';
 import './projects.css';
 
 class projects extends React.Component {
@@ -33,6 +34,18 @@ class projects extends React.Component {
         });
     }
 
+    getNextProjects = () =>{
+        this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
+        this.fetchProjects();
+    }
+
+    getPrevProjects = () =>{
+        if(this.state.loadCount > 0){
+            this.setState(prevState => {return {loadCount: prevState.loadCount -= 1}});
+            this.fetchProjects();
+        }
+    }
+
     render(){
         let projectToRender = null
         if(this.state.projects){
@@ -47,6 +60,9 @@ class projects extends React.Component {
             <main className="projects">
                 <div>
                     {projectToRender}
+                    <Button onClick={this.getPrevProjects} value={"<"} 
+                    disapled={this.state.loadCount <= 0 ? "true" : null}/> 
+                    <Button onClick={this.getNextProjects} value={">"}/>  
                 </div>
             </main>
         ); 
