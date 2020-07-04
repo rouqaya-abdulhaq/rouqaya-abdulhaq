@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorPage from '../../../components/layout/errorPage/errorPage';
 
 
 class ErrHandler extends React.Component {
@@ -6,7 +7,6 @@ class ErrHandler extends React.Component {
         super(props);
         this.state = {
             hasErr : false,
-            errMsg : ''
         }
     }
 
@@ -16,7 +16,9 @@ class ErrHandler extends React.Component {
 
     render(){
         if(this.state.hasErr){
-            return(<p>error!!! {this.state.errMsg}</p>);
+            return(
+                <ErrorPage/>
+            );
         }else{
             return this.props.children;
         }

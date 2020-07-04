@@ -1,0 +1,9 @@
+.errPage{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: #342b38;
+    color: white;
+    height: 100vh;
+    padding-top: 20vh;
+}
