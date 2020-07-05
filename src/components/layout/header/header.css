@@ -1,6 +1,6 @@
 .header{
     display: grid;
-    grid-template-columns: 20vw 50vw 30vw;
+    grid-template-columns: 20vw 40vw 40vw;
     grid-template-areas: "logoArea . navArea";
     grid-area: header;
     position: relative;
