@@ -4,7 +4,7 @@ import {mapBlogsToCards} from '../../utilities/utilities';
 import Button from '../../components/UI/buttons/button/button';
 import './blogs.css';
 
-class Blogs extends React.Component{
+export class Blogs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
