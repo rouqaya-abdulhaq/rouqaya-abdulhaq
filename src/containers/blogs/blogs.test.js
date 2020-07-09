@@ -2,6 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import {Blogs} from './blogs';
 import Card from '../../components/UI/card/card';
+import Btn from '../../components/UI/buttons/button/button';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('<Blogs/>',()=>{
@@ -46,5 +47,22 @@ describe('<Blogs/>',()=>{
         const loadCount = wrapper.instance().state.loadCount;
         wrapper.instance().getPrevBlogs();
         expect(wrapper.instance().state.loadCount).toEqual(0);
+    });
+
+    it('should pass disapled as true when load count is 0',()=>{
+        const wrapper = shallow(<Blogs />, {
+            wrappingComponent : BrowserRouter
+        });
+        const disapled =  wrapper.find(Btn).first().prop('disapled');
+        expect(disapled).toEqual('true');
+    });
+
+    it('should pass disapled as null when load count > 0',()=>{
+        const wrapper = shallow(<Blogs />, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().getNextBlogs();
+        const disapled =  wrapper.find(Btn).first().prop('disapled');
+        expect(disapled).toEqual(null);
     });
 });
