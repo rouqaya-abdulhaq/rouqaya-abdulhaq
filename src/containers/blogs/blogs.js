@@ -3,13 +3,15 @@ import {withRouter} from 'react-router-dom';
 import {mapBlogsToCards} from '../../utilities/utilities';
 import Button from '../../components/UI/buttons/button/button';
 import './blogs.css';
+import ServerErr from '../../components/layout/errorPage/serverErr';
 
 export class Blogs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             blogs : [],
-            loadCount : 0
+            loadCount : 0,
+            hasErr : false,
         }
     }
 
@@ -31,7 +33,7 @@ export class Blogs extends React.Component{
                 this.setState({blogs : res.blogs});
             }
         }).catch((err)=>{
-            console.log(err);
+            this.setState({hasErr : true})
         })
     }
 
@@ -50,7 +52,7 @@ export class Blogs extends React.Component{
     render(){
         let blogToRender = null
         if(this.state.blogs){
-            blogToRender = mapBlogsToCards(this.state.blogs,this.props.history);
+            blogToRender = this.state.hasErr ? <ServerErr data="blogs"/> : mapBlogsToCards(this.state.blogs,this.props.history);
         }
 
         return(

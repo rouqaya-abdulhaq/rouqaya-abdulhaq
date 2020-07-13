@@ -2,6 +2,7 @@ import React from 'react';
 import ProjectCard from '../../components/UI/card/card';
 import Button from '../../components/UI/buttons/button/button';
 import './projects.css';
+import ServerErr from '../../components/layout/errorPage/serverErr';
 
 class projects extends React.Component {
 
@@ -9,7 +10,8 @@ class projects extends React.Component {
         super(props);
         this.state = {
             projects : [],
-            loadCount : 0
+            loadCount : 0,
+            hasErr : false,
         }
     }
 
@@ -30,7 +32,7 @@ class projects extends React.Component {
                 this.setState({projects : res.projects});
             }
         }).catch((err)=>{
-            console.log(err);
+            this.setState({hasErr : true});
         });
     }
 
@@ -49,7 +51,7 @@ class projects extends React.Component {
     render(){
         let projectToRender = null
         if(this.state.projects){
-            projectToRender = this.state.projects.map((project)=>{
+            projectToRender = this.state.hasErr ?  <ServerErr data="projects"/>: this.state.projects.map((project)=>{
                 return <ProjectCard info={project.info} projectLink={project.url}
                 GitHubFiles={project.github} title={project.title} imgPath={project.img_url}
                 key={project.id}/>
