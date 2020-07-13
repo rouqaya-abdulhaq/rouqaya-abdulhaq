@@ -6,6 +6,7 @@ import queryString from 'query-string';
 import twitter from '../../images/twitter.png';
 import facebook from '../../images/facebook.png';
 import linkedin from '../../images/linkedin.png';
+import ServerErr from '../layout/errorPage/serverErr';
 import './blog.css';
 
 
@@ -37,32 +38,35 @@ const Blog = withRouter(({history,location, ...props}) =>{
             }
         }).catch((err)=>{
             setError(err);
-            console.log(hasError);
         });
         return () => mounted = false;
     })
+
+    const content = hasError ? <ServerErr data={"blog"}/> 
+                        : 
+                            <div>
+                                <h1>{blog.title}</h1>
+                                <p>
+                                    {blog.content}
+                                </p> 
+                                <div className="share">
+                                    
+                                    <FacebookShareButton children={<img src={facebook} alt="share on facebook" title="share"/>} url={window.location.href} 
+                                    quote="my blog" hashtag="#blog"/>
+
+                                    <TwitterShareButton children={<img src={twitter} alt="tweet" title="tweet"/>} url={window.location.href}
+                                    title={blog.title} via="RouqayaAbdulhaq" hashtags={['blog',"development"]}/>
+
+                                    <LinkedinShareButton children={<img src={linkedin} alt="share with linkedin" title="share"/>} url={window.location.href}
+                                    title={blog.title} source="Rouqaya Abdulhaq"/>
+
+                                </div>
+                            </div>
     
     return(
         <main className="blog">
             <BackBtn onClick={backEventHandler} value="back"/>
-            <div>
-                <h1>{blog.title}</h1>
-                <p>
-                    {blog.content}
-                </p> 
-                <div className="share">
-                    
-                    <FacebookShareButton children={<img src={facebook} alt="share on facebook" title="share"/>} url={window.location.href} 
-                    quote="my blog" hashtag="#blog"/>
-
-                    <TwitterShareButton children={<img src={twitter} alt="tweet" title="tweet"/>} url={window.location.href}
-                    title={blog.title} via="RouqayaAbdulhaq" hashtags={['blog',"development"]}/>
-
-                    <LinkedinShareButton children={<img src={linkedin} alt="share with linkedin" title="share"/>} url={window.location.href}
-                    title={blog.title} source="Rouqaya Abdulhaq"/>
-
-                </div>
-            </div>
+            {content}
         </main>
     );
 });
