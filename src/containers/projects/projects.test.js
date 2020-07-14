@@ -4,6 +4,7 @@ import Projects from './projects';
 import {BrowserRouter} from 'react-router-dom';
 import Card from '../../components/UI/card/card';
 import Btn from '../../components/UI/buttons/button/button';
+import ServerErr from '../../components/layout/errorPage/serverErr';
 
 describe('<Projects />',()=>{
     it('should not render any cards when projects = []',()=>{
@@ -66,5 +67,20 @@ describe('<Projects />',()=>{
         wrapper.instance().getNextProjects();
         const disapled =  wrapper.find(Btn).first().prop('disapled');
         expect(disapled).toEqual(null);
+    });
+
+    it('should not render ServerErr when hasErr = false',()=>{
+        const wrapper = shallow(<Projects />, {
+            wrappingComponent : BrowserRouter
+        });
+        expect(wrapper.find(ServerErr)).toHaveLength(0)
+    });
+
+    it('should render ServerErr when hasErr = true',()=>{
+        const wrapper = shallow(<Projects />, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().setState({hasErr : true})
+        expect(wrapper.find(ServerErr)).toHaveLength(1)
     });
 });

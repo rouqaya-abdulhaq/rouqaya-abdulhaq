@@ -4,6 +4,7 @@ import {Blogs} from './blogs';
 import Card from '../../components/UI/card/card';
 import Btn from '../../components/UI/buttons/button/button';
 import { BrowserRouter } from 'react-router-dom';
+import ServerErr from '../../components/layout/errorPage/serverErr';
 
 describe('<Blogs/>',()=>{
     it('should not contain blog cards',()=>{
@@ -64,5 +65,20 @@ describe('<Blogs/>',()=>{
         wrapper.instance().getNextBlogs();
         const disapled =  wrapper.find(Btn).first().prop('disapled');
         expect(disapled).toEqual(null);
+    });
+
+    it('should not render serverErr when hasErr = false',()=>{
+        const wrapper = shallow(<Blogs />, {
+            wrappingComponent : BrowserRouter
+        });
+        expect(wrapper.find(ServerErr)).toHaveLength(0);
+    });
+
+    it('should render serverErr when hasErr = true',()=>{
+        const wrapper = shallow(<Blogs />, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().setState({hasErr : true});
+        expect(wrapper.find(ServerErr)).toHaveLength(1);
     });
 });
