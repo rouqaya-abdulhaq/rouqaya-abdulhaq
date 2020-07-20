@@ -76,7 +76,7 @@ const Blog = withRouter(({history,location, ...props}) =>{
 
     const content = hasError ? <ServerErr data={"blog"}/> 
                         : 
-                            <div>
+                            <div dir={translate ? "rtl" : "ltr"} >
                                 <h1>{blog.title}</h1>
                                 <p>
                                     {blog.content}
