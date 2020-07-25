@@ -7,6 +7,7 @@ import twitter from '../../images/twitter.png';
 import facebook from '../../images/facebook.png';
 import linkedin from '../../images/linkedin.png';
 import ServerErr from '../layout/errorPage/serverErr';
+import {loadBlog} from './assets/fetchCalls';
 import './blog.css';
 
 
@@ -29,24 +30,9 @@ const Blog = withRouter(({history,location, ...props}) =>{
     if(!translate){
         useEffect(() => {
             let mounted = true;
-            fetch(`http://localhost:8000/loadBlog?blogId=${values.id}`,{
-            method : 'GET',
-            headers : {
-                'Accept': 'application/json',
-            }
-            }).then((res)=>{
-                return res.json();
-            }).then((res) => {
-                if(mounted){
-                    if(res.success){
-                        setBlog(res.blog); 
-                    }
-                }
-            }).catch((err)=>{
-                setError(err);
-            });
+            loadBlog(values.id,setBlog,mounted,setError);
             return () => mounted = false;
-        }) 
+        },[values.id]); 
     }else if(translate){
         useEffect(() => {
             let mounted = true;
@@ -69,7 +55,7 @@ const Blog = withRouter(({history,location, ...props}) =>{
                 setError(err);
             });
             return () => mounted = false;
-        }) 
+        }); 
     }
 
     const translationBtn = translate ? <Btn onClick={translateHandler} value="English"/> : <Btn onClick={translateHandler} value="العربية"/>
