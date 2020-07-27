@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import SocialLink from "../../UI/socialLink/socialLink";
 import {Link} from 'react-router-dom';
 import Button from '../../UI/buttons/button/button';
@@ -7,20 +7,36 @@ import twitter from '../../../images/twitter.png';
 import linkedin from '../../../images/linkedin.png';
 import './about.css';
 
-const about = () => {
+const About = () => {
+    const [hasError, setError] = useState(false);
+    const [content, setContent] = useState("");
+
+    useEffect(() => {
+        let mounted = true;
+        fetch(`http://localhost:8000/loadAbout`,{
+        method : 'GET',
+        headers : {
+            'Accept': 'application/json',
+        }
+        }).then((res)=>{
+            return res.json();
+        }).then((res) => {
+            if(mounted){
+                if(res.success){
+                    setContent(res.about.content); 
+                }
+            }
+        }).catch((err)=>{
+            setError(err);
+            console.log(hasError);
+        });
+        return () => mounted = false;
+    });
+
     return(
         <main className="about">
             <p>
-                Being a self taught developer has given me a whole new prespective on how to learn and 
-                work. I have always been an excellent studen at school but I've never felt like i was really
-                learning anything, i was lazy and abscent, I only knew how to get good grades.
-                Due to events I've started to learn programming and got into the world of web development and
-                i started to put more effort and pay attention to the detaills because a project done half 
-                good is a bad envisment in the long run.
-                <br/>
-                every technology i work with i try to apply the best standard.
-                <br/>
-                and I'm still learning...   
+                {content} 
             </p>
             <div>
                 you can find me here on the internet :
@@ -36,4 +52,4 @@ const about = () => {
     );
 }
 
-export default about;
+export default About;
