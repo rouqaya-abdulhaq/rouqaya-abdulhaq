@@ -9,7 +9,7 @@ import './about.css';
 
 const About = () => {
     const [hasError, setError] = useState(false);
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState(``);
 
     useEffect(() => {
         let mounted = true;
@@ -23,7 +23,7 @@ const About = () => {
         }).then((res) => {
             if(mounted){
                 if(res.success){
-                    setContent(res.about.content); 
+                    setContent(res.about.content);
                 }
             }
         }).catch((err)=>{
@@ -33,11 +33,19 @@ const About = () => {
         return () => mounted = false;
     });
 
+    let text = "";
+
+    if(content){
+        text = content.split('\n').map(i => {
+            return <p key={i}>{i}</p>
+        });
+    }
+
     return(
         <main className="about">
-            <p>
-                {content} 
-            </p>
+            <div className="p">
+                {text} 
+            </div>
             <div>
                 you can find me here on the internet :
                 <SocialLink url="https://github.com/rouqaya-abdulhaq" title="github" img={github}/>

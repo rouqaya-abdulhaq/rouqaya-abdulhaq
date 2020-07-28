@@ -5,9 +5,10 @@
     grid-area: main;
     color: white;
     overflow-y: scroll;
+    white-space: pre-wrap;
 }
 
-.about p {
+.about .p {
     width: 50vw;
     margin-bottom: 4vh;
 }
