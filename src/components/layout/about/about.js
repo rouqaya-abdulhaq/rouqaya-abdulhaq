@@ -10,29 +10,57 @@ import './about.css';
 const About = () => {
     const [hasError, setError] = useState(false);
     const [content, setContent] = useState(``);
+    const [translate , setTranslate] = useState(false); 
+
+    const translateHandler = () =>{
+        setTranslate(!translate);
+    }
 
     useEffect(() => {
         let mounted = true;
-        fetch(`http://localhost:8000/loadAbout`,{
-        method : 'GET',
-        headers : {
-            'Accept': 'application/json',
-        }
-        }).then((res)=>{
-            return res.json();
-        }).then((res) => {
-            if(mounted){
-                if(res.success){
-                    setContent(res.about.content);
-                }
+        if(!translate){
+            fetch(`http://localhost:8000/loadAbout`,{
+            method : 'GET',
+            headers : {
+                'Accept': 'application/json',
             }
-        }).catch((err)=>{
-            setError(err);
-            console.log(hasError);
-        });
+            }).then((res)=>{
+                return res.json();
+            }).then((res) => {
+                if(mounted){
+                    if(res.success){
+                        setContent(res.about.content);
+                    }
+                }
+            }).catch((err)=>{
+                setError(err);
+                console.log(hasError);
+            });
+        }else if(translate){
+            fetch(`http://localhost:8000/loadAboutTranslation`,{
+            method : 'GET',
+            headers : {
+                'Accept': 'application/json',
+            }
+            }).then((res)=>{
+                return res.json();
+            }).then((res) => {
+                if(mounted){
+                    if(res.success){
+                        setContent(res.about.content);
+                    }
+                }
+            }).catch((err)=>{
+                setError(err);
+                console.log(hasError);
+            });
+        }
         return () => mounted = false;
     });
 
+    const translationBtn = translate ? <Button onClick={translateHandler} value="English"/> : <Button onClick={translateHandler} value="العربية"/>
+    const socialP = translate ? " : تابعني على مواقع التواصل الإجتماعي" : "you can find me here on the internet :"
+    const projectP = translate ? "  : تفقد بعض مشاريعي" : "and check out some of my projects : ";
     let text = "";
 
     if(content){
@@ -43,19 +71,20 @@ const About = () => {
 
     return(
         <main className="about">
-            <div className="p">
+            <div dir={translate ? "rtl" : "ltr"} className="p">
                 {text} 
             </div>
-            <div>
-                you can find me here on the internet :
+            <div dir={translate ? "rtl" : "ltr"}>
+                {socialP}
                 <SocialLink url="https://github.com/rouqaya-abdulhaq" title="github" img={github}/>
                 <SocialLink url="https://twitter.com/RouqayaAbdulhaq" title="twitter" img={twitter}/>
                 <SocialLink url="https://www.linkedin.com/in/rouqaya-abdulhaq-91080116a/" title="linkedin" img={linkedin}/>
             </div>
-            <div>
-                and check out some of my projects :
+            <div dir={translate ? "rtl" : "ltr"}>
+                {projectP}
                 <Link to="./projects"><Button value="projects"/></Link>
             </div>
+            {translationBtn}
         </main>
     );
 }
