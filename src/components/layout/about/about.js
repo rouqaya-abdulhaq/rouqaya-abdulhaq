@@ -6,6 +6,7 @@ import Button from '../../UI/buttons/button/button';
 import github from '../../../images/github.png';
 import twitter from '../../../images/twitter.png';
 import linkedin from '../../../images/linkedin.png';
+import ServerErr from '../errorPage/serverErr';
 import './about.css';
 
 const About = () => {
@@ -39,10 +40,12 @@ const About = () => {
         });
     }
 
+    const paragraph = hasError ? <ServerErr data="about page"/> : text
+
     return(
         <main className="about">
             <div dir={translate ? "rtl" : "ltr"} className="p">
-                {text} 
+                {paragraph} 
             </div>
             <div dir={translate ? "rtl" : "ltr"}>
                 {socialP}
