@@ -11,6 +11,7 @@ export class Blogs extends React.Component{
         this.state = {
             blogs : [],
             loadCount : 0,
+            blogsCount : 0,
             hasErr : false,
         }
     }
@@ -18,6 +19,24 @@ export class Blogs extends React.Component{
 
     componentDidMount(){
         this.fetchBlogs();
+        this.getBlogsCount();
+    }
+
+    getBlogsCount = () =>{
+        fetch(`http://localhost:8000/getBlogsCount`,{
+            method : 'GET',
+            headers : {
+                'Accept': 'application/json',
+            }
+        }).then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            if(res.success){
+                this.setState({blogsCount : res.count});
+            }
+        }).catch((err)=>{
+            this.setState({hasErr : true})
+        })
     }
 
     fetchBlogs = () =>{
@@ -50,6 +69,7 @@ export class Blogs extends React.Component{
     }
 
     render(){
+        console.log(this.state.blogsCount);
         let blogToRender = null
         if(this.state.blogs){
             blogToRender = this.state.hasErr ? <ServerErr data="blogs"/> : mapBlogsToCards(this.state.blogs,this.props.history);
@@ -62,7 +82,8 @@ export class Blogs extends React.Component{
                     {blogToRender}
                     <Button onClick={this.getPrevBlogs} value={"<"} 
                     disapled={this.state.loadCount <= 0 ? "true" : null}/> 
-                    <Button onClick={this.getNextBlogs} value={">"}/>   
+                    <Button onClick={this.getNextBlogs} value={">"}
+                    disapled={this.state.loadCount >= this.state.blogsCount ? "true" : null}/>   
                 </div>
             </main>
         );
