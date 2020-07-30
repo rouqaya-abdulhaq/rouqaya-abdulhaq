@@ -7,7 +7,7 @@ import twitter from '../../images/twitter.png';
 import facebook from '../../images/facebook.png';
 import linkedin from '../../images/linkedin.png';
 import ServerErr from '../layout/errorPage/serverErr';
-import {loadBlog} from './assets/fetchCalls';
+import {loadBlog,loadTranslation} from './assets/fetchCalls';
 import './blog.css';
 
 
@@ -27,36 +27,15 @@ const Blog = withRouter(({history,location, ...props}) =>{
         setTranslate(!translate);
     }
 
-    if(!translate){
-        useEffect(() => {
-            let mounted = true;
+    useEffect(() => {
+        let mounted = true;
+        if(!translate){
             loadBlog(values.id,setBlog,mounted,setError);
-            return () => mounted = false;
-        },[values.id]); 
-    }else if(translate){
-        useEffect(() => {
-            let mounted = true;
-            fetch(`http://localhost:8000/getArabicBlog?blogId=${values.id}`,{
-            method : 'GET',
-            headers : {
-                'Accept': 'application/json',
-            }
-            }).then((res)=>{
-                return res.json();
-            }).then((res) => {
-                if(mounted){
-                    if(res.success){
-                        setBlog(res.blog); 
-                    }else{
-                        setBlog({title : "لا يوجد ترجمة", content : "سوف نقوم بالترجمة بأسرع وقت"});
-                    }
-                }
-            }).catch((err)=>{
-                setError(err);
-            });
-            return () => mounted = false;
-        }); 
-    }
+        }else if (translate){
+            loadTranslation(values.id,setBlog,mounted,setError);
+        }
+        return () => mounted = false;
+    },[values.id,translate]); 
 
     const translationBtn = translate ? <Btn onClick={translateHandler} value="English"/> : <Btn onClick={translateHandler} value="العربية"/>
 
