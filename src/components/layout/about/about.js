@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import SocialLink from "../../UI/socialLink/socialLink";
 import {Link} from 'react-router-dom';
+import {loadAboutContent, loadAboutTranslation} from './assets/fetchCalls';
 import Button from '../../UI/buttons/button/button';
 import github from '../../../images/github.png';
 import twitter from '../../../images/twitter.png';
@@ -19,44 +20,13 @@ const About = () => {
     useEffect(() => {
         let mounted = true;
         if(!translate){
-            fetch(`http://localhost:8000/loadAbout`,{
-            method : 'GET',
-            headers : {
-                'Accept': 'application/json',
-            }
-            }).then((res)=>{
-                return res.json();
-            }).then((res) => {
-                if(mounted){
-                    if(res.success){
-                        setContent(res.about.content);
-                    }
-                }
-            }).catch((err)=>{
-                setError(err);
-                console.log(hasError);
-            });
+            loadAboutContent(setContent,setError,mounted);
         }else if(translate){
-            fetch(`http://localhost:8000/loadAboutTranslation`,{
-            method : 'GET',
-            headers : {
-                'Accept': 'application/json',
-            }
-            }).then((res)=>{
-                return res.json();
-            }).then((res) => {
-                if(mounted){
-                    if(res.success){
-                        setContent(res.about.content);
-                    }
-                }
-            }).catch((err)=>{
-                setError(err);
-                console.log(hasError);
-            });
+            loadAboutTranslation(setContent,setError,mounted);
+            console.log(hasError);
         }
         return () => mounted = false;
-    });
+    },[translate,hasError]);
 
     const translationBtn = translate ? <Button onClick={translateHandler} value="English"/> : <Button onClick={translateHandler} value="العربية"/>
     const socialP = translate ? " : تابعني على مواقع التواصل الإجتماعي" : "you can find me here on the internet :"
