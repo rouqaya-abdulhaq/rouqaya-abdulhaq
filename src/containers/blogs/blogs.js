@@ -69,7 +69,8 @@ export class Blogs extends React.Component{
     }
 
     render(){
-        console.log(this.state.blogsCount);
+        const disaplePrevBtn = this.state.loadCount <= 0 ? "true" : null;
+        const disapleNextBtn = this.state.loadCount >= this.state.blogsCount ? "true" : null;
         let blogToRender = null
         if(this.state.blogs){
             blogToRender = this.state.hasErr ? <ServerErr data="blogs"/> : mapBlogsToCards(this.state.blogs,this.props.history);
@@ -80,10 +81,10 @@ export class Blogs extends React.Component{
                 <h2>BLOGS :  </h2>
                 <div className="blogs">
                     {blogToRender}
-                    <Button onClick={this.getPrevBlogs} value={"<"} 
-                    disapled={this.state.loadCount <= 0 ? "true" : null}/> 
-                    <Button onClick={this.getNextBlogs} value={">"}
-                    disapled={this.state.loadCount >= this.state.blogsCount ? "true" : null}/>   
+                    <Button onClick={disaplePrevBtn ? ()=>{} : this.getPrevBlogs} value={"<"} 
+                    disapled={disaplePrevBtn}/> 
+                    <Button onClick={disapleNextBtn ? () =>{} : this.getNextBlogs} value={">"}
+                    disapled={disapleNextBtn}/>   
                 </div>
             </main>
         );
