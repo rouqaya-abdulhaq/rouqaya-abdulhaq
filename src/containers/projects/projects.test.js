@@ -52,7 +52,7 @@ describe('<Projects />',()=>{
         expect(wrapper.instance().state.loadCount).toEqual(0);
     });
 
-    it('should pass disapled as true when load count is 0',()=>{
+    it('should pass disapled as true to prev Btn when load count is 0',()=>{
         const wrapper = shallow(<Projects />, {
             wrappingComponent : BrowserRouter
         });
@@ -60,12 +60,29 @@ describe('<Projects />',()=>{
         expect(disapled).toEqual('true');
     });
 
-    it('should pass disapled as null when load count > 0',()=>{
+    it('should pass disapled as null to prev Btn when load count > 0',()=>{
         const wrapper = shallow(<Projects />, {
             wrappingComponent : BrowserRouter
         });
         wrapper.instance().getNextProjects();
         const disapled =  wrapper.find(Btn).first().prop('disapled');
+        expect(disapled).toEqual(null);
+    });
+
+    it('should pass disapled as true to next Btn when blogs count is bigger than load count',()=>{
+        const wrapper = shallow(<Projects />, {
+            wrappingComponent : BrowserRouter
+        });
+        const disapled =  wrapper.instance().state.loadCount >= wrapper.instance().state.projectsCount ? "true" : null;
+        expect(disapled).toEqual('true');
+    });
+
+    it('should pass disapled as null to next Btn when blogs count is bigger than load count',()=>{
+        const wrapper = shallow(<Projects />, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().setState({projectsCount : 1});
+        const disapled =  wrapper.instance().state.loadCount >= wrapper.instance().state.projectsCount ? "true" : null;
         expect(disapled).toEqual(null);
     });
 

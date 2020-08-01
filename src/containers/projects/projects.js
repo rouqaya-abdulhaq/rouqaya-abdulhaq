@@ -21,23 +21,6 @@ class projects extends React.Component {
         this.getProjectsCount();
     }
 
-    fetchProjects = () =>{
-        fetch(`http://localhost:8000/loadProjects?loadCount=${this.state.loadCount}`,{
-            method : 'GET',
-            headers : {
-                'Accept': 'application/json',
-            }
-        }).then((res)=>{
-            return res.json();
-        }).then((res)=>{
-            if(res.success){
-                this.setState({projects : res.projects});
-            }
-        }).catch((err)=>{
-            this.setState({hasErr : true});
-        });
-    }
-
     getProjectsCount = () =>{
         fetch(`http://localhost:8000/getProjectsCount`,{
             method : 'GET',
@@ -53,6 +36,23 @@ class projects extends React.Component {
         }).catch((err)=>{
             this.setState({hasErr : true})
         })
+    }
+
+    fetchProjects = () =>{
+        fetch(`http://localhost:8000/loadProjects?loadCount=${this.state.loadCount}`,{
+            method : 'GET',
+            headers : {
+                'Accept': 'application/json',
+            }
+        }).then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            if(res.success){
+                this.setState({projects : res.projects});
+            }
+        }).catch((err)=>{
+            this.setState({hasErr : true});
+        });
     }
 
     getNextProjects = () =>{
