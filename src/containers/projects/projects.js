@@ -11,12 +11,14 @@ class projects extends React.Component {
         this.state = {
             projects : [],
             loadCount : 0,
+            projectsCount : 0,
             hasErr : false,
         }
     }
 
     componentDidMount(){
         this.fetchProjects();
+        this.getProjectsCount();
     }
 
     fetchProjects = () =>{
@@ -36,6 +38,23 @@ class projects extends React.Component {
         });
     }
 
+    getProjectsCount = () =>{
+        fetch(`http://localhost:8000/getProjectsCount`,{
+            method : 'GET',
+            headers : {
+                'Accept': 'application/json',
+            }
+        }).then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            if(res.success){
+                this.setState({projectsCount : res.count});
+            }
+        }).catch((err)=>{
+            this.setState({hasErr : true})
+        })
+    }
+
     getNextProjects = () =>{
         this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
         this.fetchProjects();
@@ -49,6 +68,8 @@ class projects extends React.Component {
     }
 
     render(){
+        const disaplePrevBtn = this.state.loadCount <= 0 ? "true" : null;
+        const disapleNextBtn = this.state.loadCount >= this.state.projectsCount ? "true" : null;
         let projectToRender = null
         if(this.state.projects){
             projectToRender = this.state.hasErr ?  <ServerErr data="projects"/>: this.state.projects.map((project)=>{
@@ -62,9 +83,10 @@ class projects extends React.Component {
             <main className="projects">
                 <div>
                     {projectToRender}
-                    <Button onClick={this.getPrevProjects} value={"<"} 
-                    disapled={this.state.loadCount <= 0 ? "true" : null}/> 
-                    <Button onClick={this.getNextProjects} value={">"}/>  
+                    <Button onClick={disaplePrevBtn ? () =>{} : this.getPrevProjects} value={"<"} 
+                    disapled={disaplePrevBtn}/> 
+                    <Button onClick={disapleNextBtn ? () =>{} : this.getNextProjects} value={">"}
+                    disapled={disapleNextBtn}/>  
                 </div>
             </main>
         ); 
