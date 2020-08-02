@@ -56,8 +56,10 @@ class projects extends React.Component {
     }
 
     getNextProjects = () =>{
-        this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
-        this.fetchProjects();
+        if(this.state.loadCount < this.state.projectsCount){
+            this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
+            this.fetchProjects();
+        }
     }
 
     getPrevProjects = () =>{
@@ -83,9 +85,9 @@ class projects extends React.Component {
             <main className="projects">
                 <div>
                     {projectToRender}
-                    <Button onClick={disaplePrevBtn ? () =>{} : this.getPrevProjects} value={"<"} 
+                    <Button onClick={this.getPrevProjects} value={"<"} 
                     disapled={disaplePrevBtn}/> 
-                    <Button onClick={disapleNextBtn ? () =>{} : this.getNextProjects} value={">"}
+                    <Button onClick={this.getNextProjects} value={">"}
                     disapled={disapleNextBtn}/>  
                 </div>
             </main>

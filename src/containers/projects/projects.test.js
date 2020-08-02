@@ -26,6 +26,7 @@ describe('<Projects />',()=>{
         const wrapper = shallow(<Projects />, {
             wrappingComponent : BrowserRouter
         });
+        wrapper.instance().setState({projectsCount : 1});
         const loadCount = wrapper.instance().state.loadCount;
         const expected = loadCount + 1;
         wrapper.instance().getNextProjects();
@@ -36,7 +37,7 @@ describe('<Projects />',()=>{
         const wrapper = shallow(<Projects />, {
             wrappingComponent : BrowserRouter
         });
-        wrapper.instance().getNextProjects();
+        wrapper.instance().setState({loadCount : 1});
         const loadCount = wrapper.instance().state.loadCount;
         const expected = loadCount - 1;
         wrapper.instance().getPrevProjects();
@@ -64,9 +65,17 @@ describe('<Projects />',()=>{
         const wrapper = shallow(<Projects />, {
             wrappingComponent : BrowserRouter
         });
-        wrapper.instance().getNextProjects();
+        wrapper.instance().setState({loadCount : 1});
         const disapled =  wrapper.find(Btn).first().prop('disapled');
         expect(disapled).toEqual(null);
+    });
+
+    it('should not increment when loadCount >= projectsCount',()=>{
+        const wrapper = shallow(<Projects />, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().getNextProjects();
+        expect(wrapper.instance().state.loadCount).toEqual(0);
     });
 
     it('should pass disapled as true to next Btn when blogs count is bigger than load count',()=>{

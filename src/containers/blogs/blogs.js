@@ -57,8 +57,10 @@ export class Blogs extends React.Component{
     }
 
     getNextBlogs = () =>{
-        this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
-        this.fetchBlogs();
+        if(this.state.loadCount < this.state.blogsCount){
+            this.setState(prevState => {return {loadCount: prevState.loadCount += 1}});
+            this.fetchBlogs();
+        }
     }
 
     getPrevBlogs = () =>{
@@ -81,9 +83,9 @@ export class Blogs extends React.Component{
                 <h2>BLOGS :  </h2>
                 <div className="blogs">
                     {blogToRender}
-                    <Button onClick={disaplePrevBtn ? ()=>{} : this.getPrevBlogs} value={"<"} 
+                    <Button onClick={this.getPrevBlogs} value={"<"} 
                     disapled={disaplePrevBtn}/> 
-                    <Button onClick={disapleNextBtn ? () =>{} : this.getNextBlogs} value={">"}
+                    <Button onClick={this.getNextBlogs} value={">"}
                     disapled={disapleNextBtn}/>   
                 </div>
             </main>
