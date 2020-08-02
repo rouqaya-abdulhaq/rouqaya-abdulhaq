@@ -9,7 +9,7 @@ import linkedin from '../../../images/linkedin.png';
 import ServerErr from '../errorPage/serverErr';
 import './about.css';
 
-const About = () => {
+const About = (props) => {
     const [hasError, setError] = useState(false);
     const [content, setContent] = useState(``);
     const [translate , setTranslate] = useState(false); 
@@ -21,13 +21,13 @@ const About = () => {
     useEffect(() => {
         let mounted = true;
         if(!translate){
-            loadAboutContent(setContent,setError,mounted);
+            loadAboutContent(setContent,setError,mounted,props.loadingStarted,props.loadingFinished);
         }else if(translate){
-            loadAboutTranslation(setContent,setError,mounted);
+            loadAboutTranslation(setContent,setError,mounted,props.loadingStarted,props.loadingFinished);
             console.log(hasError);
         }
         return () => mounted = false;
-    },[translate,hasError]);
+    },[translate,hasError,props.loadingStarted,props.loadingFinished]);
 
     const translationBtn = translate ? <Button onClick={translateHandler} value="English"/> : <Button onClick={translateHandler} value="العربية"/>
     const socialP = translate ? " : تابعني على مواقع التواصل الإجتماعي" : "you can find me here on the internet :"

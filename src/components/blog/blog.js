@@ -30,12 +30,12 @@ const Blog = withRouter(({history,location, ...props}) =>{
     useEffect(() => {
         let mounted = true;
         if(!translate){
-            loadBlog(values.id,setBlog,mounted,setError);
+            loadBlog(values.id,setBlog,mounted,setError,props.loadingStarted,props.loadingFinished);
         }else if (translate){
-            loadTranslation(values.id,setBlog,mounted,setError);
+            loadTranslation(values.id,setBlog,mounted,setError,props.loadingStarted,props.loadingFinished);
         }
         return () => mounted = false;
-    },[values.id,translate]); 
+    },[values.id,translate,props.loadingStarted,props.loadingFinished]); 
 
     const translationBtn = translate ? <Btn onClick={translateHandler} value="English"/> : <Btn onClick={translateHandler} value="العربية"/>
 

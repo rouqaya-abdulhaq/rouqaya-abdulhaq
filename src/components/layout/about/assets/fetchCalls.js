@@ -1,4 +1,5 @@
-export const loadAboutContent = (setContent,setError,mounted) =>{
+export const loadAboutContent = (setContent,setError,mounted,loadingStarted,loadingFinished) =>{
+    loadingStarted();
     fetch(`http://localhost:8000/loadAbout`,{
         method : 'GET',
         headers : {
@@ -12,12 +13,15 @@ export const loadAboutContent = (setContent,setError,mounted) =>{
                 setContent(res.about.content);
             }
         }
+        loadingFinished();
     }).catch((err)=>{
         setError(err);
+        loadingFinished();
     });
 }
 
-export const loadAboutTranslation = (setContent,setError,mounted) =>{
+export const loadAboutTranslation = (setContent,setError,mounted,loadingStarted,loadingFinished) =>{
+    loadingStarted();
     fetch(`http://localhost:8000/loadAboutTranslation`,{
         method : 'GET',
         headers : {
@@ -31,7 +35,9 @@ export const loadAboutTranslation = (setContent,setError,mounted) =>{
                 setContent(res.about.content);
             }
         }
+        loadingFinished();
     }).catch((err)=>{
         setError(err);
+        loadingFinished();
     });
 }

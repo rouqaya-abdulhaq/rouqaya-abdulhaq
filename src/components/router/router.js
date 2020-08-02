@@ -10,11 +10,11 @@ import NotFound from '../layout/errorPage/404Page';
 const Router = (props) =>{
     return(
         <Switch>
-            <Route path="/" exact component={LandingPage}/>
-            <Route path="/about-me" exact component={About}/>
-            <Route path="/projects" exact component={Projects}/>
-            <Route path="/blogs" exact component={Blogs}/>
-            <Route path="/blogs/blog" component={Blog}/>
+            <Route path="/" exact render={()=> <LandingPage loadingStarted={props.loadingStarted} loadingFinished={props.loadingFinished}/>}/>
+            <Route path="/about-me" exact render={()=> <About loadingStarted={props.loadingStarted} loadingFinished={props.loadingFinished}/>}/>
+            <Route path="/projects" exact render={()=> <Projects loadingStarted={props.loadingStarted} loadingFinished={props.loadingFinished}/>}/>
+            <Route path="/blogs" exact render={()=> <Blogs loadingStarted={props.loadingStarted} loadingFinished={props.loadingFinished}/>}/>
+            <Route path="/blogs/blog" render={()=> <Blog loadingStarted={props.loadingStarted} loadingFinished={props.loadingFinished}/>}/>
             <Route path="*" component={NotFound}/>
         </Switch>
     );

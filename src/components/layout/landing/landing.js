@@ -12,6 +12,7 @@ const LandingPage = (props) => {
     
     useEffect(() => {
         let mounted = true;
+        // props.loadingStarted();
         fetch(`http://localhost:8000/loadLastBlogs`,{
         method : 'GET',
         headers : {
@@ -25,8 +26,10 @@ const LandingPage = (props) => {
                     setBlogs(res.blogs);
                 }
             }
+            // props.loadingFinished();
         }).catch((err)=>{
             setError(err);
+            // props.loadingFinished();
         });
         return () => mounted = false;
     });

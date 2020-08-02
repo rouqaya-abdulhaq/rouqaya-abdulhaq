@@ -12,6 +12,7 @@ class Layout extends React.Component{
         super(props);
         this.state = {
             showSideBar : false,
+            loading : false,
         }
     }
 
@@ -21,7 +22,16 @@ class Layout extends React.Component{
         }); 
     }
 
+    loadingStarted = () =>{
+        this.setState({loading : true});
+    }
+
+    loadingFinished = () =>{
+        this.setState({loading : false});
+    }
+
     render(){
+        console.log(this.state.loading);
         return(
             <div className="layout">
                 <BrowserRouter>
@@ -29,7 +39,9 @@ class Layout extends React.Component{
                     <SideBar 
                         showSideBar={this.state.showSideBar}
                         toggleSideBarHandler = {this.toggleSideBarHandler}/>
-                    <Router/>
+                    <Router
+                        loadingStarted= {this.loadingStarted}
+                        loadingFinished= {this.loadingFinished}/>
                     <Footer/>
                 </BrowserRouter>
             </div>
