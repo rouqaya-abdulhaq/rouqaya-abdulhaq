@@ -3,6 +3,7 @@ import ProjectCard from '../../components/UI/card/card';
 import Button from '../../components/UI/buttons/button/button';
 import './projects.css';
 import ServerErr from '../../components/layout/errorPage/serverErr';
+import Spinner from '../../components/UI/spinner/spinner';
 
 class projects extends React.Component {
 
@@ -84,10 +85,12 @@ class projects extends React.Component {
             })
         }
 
+        const render = this.props.isLoading ? <Spinner/> : projectToRender  
+
         return(
             <main className="projects">
                 <div>
-                    {projectToRender}
+                    {render}
                     <Button onClick={this.getPrevProjects} value={"<"} 
                     disapled={disaplePrevBtn}/> 
                     <Button onClick={this.getNextProjects} value={">"}

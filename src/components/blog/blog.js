@@ -9,6 +9,7 @@ import linkedin from '../../images/linkedin.png';
 import ServerErr from '../layout/errorPage/serverErr';
 import {loadBlog,loadTranslation} from './assets/fetchCalls';
 import './blog.css';
+import Spinner from '../UI/spinner/spinner';
 
 
 const Blog = withRouter(({history,location, ...props}) =>{
@@ -60,11 +61,13 @@ const Blog = withRouter(({history,location, ...props}) =>{
 
                                 </div>
                             </div>
+
+    const render = props.isLoading ? <Spinner/> : content
     
     return(
         <main className="blog">
             <Btn onClick={backEventHandler} value="back"/>
-            {content}
+            {render}
         </main>
     );
 });

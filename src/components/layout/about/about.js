@@ -8,6 +8,7 @@ import twitter from '../../../images/twitter.png';
 import linkedin from '../../../images/linkedin.png';
 import ServerErr from '../errorPage/serverErr';
 import './about.css';
+import Spinner from '../../UI/spinner/spinner';
 
 const About = (props) => {
     const [hasError, setError] = useState(false);
@@ -24,7 +25,6 @@ const About = (props) => {
             loadAboutContent(setContent,setError,mounted,props.loadingStarted,props.loadingFinished);
         }else if(translate){
             loadAboutTranslation(setContent,setError,mounted,props.loadingStarted,props.loadingFinished);
-            console.log(hasError);
         }
         return () => mounted = false;
     },[translate,hasError,props.loadingStarted,props.loadingFinished]);
@@ -42,10 +42,12 @@ const About = (props) => {
 
     const paragraph = hasError ? <ServerErr data="about page"/> : text
 
+    const render = props.isLoading ? <Spinner/> : paragraph
+
     return(
         <main className="about">
             <div dir={translate ? "rtl" : "ltr"} className="p">
-                {paragraph} 
+                {render} 
             </div>
             <div dir={translate ? "rtl" : "ltr"}>
                 {socialP}

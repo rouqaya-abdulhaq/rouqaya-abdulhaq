@@ -4,6 +4,7 @@ import {mapBlogsToCards} from '../../utilities/utilities';
 import Button from '../../components/UI/buttons/button/button';
 import './blogs.css';
 import ServerErr from '../../components/layout/errorPage/serverErr';
+import Spinner from '../../components/UI/spinner/spinner';
 
 export class Blogs extends React.Component{
     constructor(props){
@@ -81,15 +82,17 @@ export class Blogs extends React.Component{
             blogToRender = this.state.hasErr ? <ServerErr data="blogs"/> : mapBlogsToCards(this.state.blogs,this.props.history);
         }
 
+        const render = this.props.isLoading ? <Spinner/> : blogToRender
+
         return(
             <main className="blogsPage">
                 <h2>BLOGS :  </h2>
                 <div className="blogs">
-                    {blogToRender}
+                    {render}
                     <Button onClick={this.getPrevBlogs} value={"<"} 
                     disapled={disaplePrevBtn}/> 
                     <Button onClick={this.getNextBlogs} value={">"}
-                    disapled={disapleNextBtn}/>   
+                    disapled={disapleNextBtn}/>
                 </div>
             </main>
         );
