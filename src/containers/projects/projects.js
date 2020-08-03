@@ -39,6 +39,7 @@ class projects extends React.Component {
     }
 
     fetchProjects = () =>{
+        this.props.loadingStarted();
         fetch(`http://localhost:8000/loadProjects?loadCount=${this.state.loadCount}`,{
             method : 'GET',
             headers : {
@@ -50,8 +51,10 @@ class projects extends React.Component {
             if(res.success){
                 this.setState({projects : res.projects});
             }
+            this.props.loadingFinished();
         }).catch((err)=>{
             this.setState({hasErr : true});
+            this.props.loadingFinished();
         });
     }
 

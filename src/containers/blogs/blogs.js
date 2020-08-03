@@ -40,6 +40,7 @@ export class Blogs extends React.Component{
     }
 
     fetchBlogs = () =>{
+        this.props.loadingStarted();
         fetch(`http://localhost:8000/loadBlogs?loadCount=${this.state.loadCount}`,{
             method : 'GET',
             headers : {
@@ -51,8 +52,10 @@ export class Blogs extends React.Component{
             if(res.success){
                 this.setState({blogs : res.blogs});
             }
+            this.props.loadingFinished();
         }).catch((err)=>{
-            this.setState({hasErr : true})
+            this.setState({hasErr : true});
+            this.props.loadingFinished();
         })
     }
 
