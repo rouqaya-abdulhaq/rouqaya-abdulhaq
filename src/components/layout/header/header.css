@@ -42,8 +42,8 @@
   }
 }
 
-@media (max-width : 675px){
+@media (max-width : 729px){
   .header{
-    grid-template-columns: 40vw 0vw 60vw;
+    grid-template-columns: 30vw 0vw 70vw;
   } 
 }
