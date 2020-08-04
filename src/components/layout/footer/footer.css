@@ -7,3 +7,14 @@ footer{
 }
 
 
+@media(max-width : 550px){
+    img{
+        width: 20px;
+    }
+    .socialMediaLinks{
+        width: 100px;
+    }
+}
+
+
+
