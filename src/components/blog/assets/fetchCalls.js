@@ -1,6 +1,8 @@
+const proxyUrl = "https://aqueous-coast-32163.herokuapp.com/";
+
 export const loadBlog = (id,setBlog,mounted,setError,loadingStarted,loadingFinished) =>{
     loadingStarted();
-    fetch(`http://localhost:8000/loadBlog?blogId=${id}`,{
+    fetch(proxyUrl + `https://rouqaya-api.herokuapp.com/loadBlog?blogId=${id}`,{
         method : 'GET',
         headers : {
             'Accept': 'application/json',
@@ -22,7 +24,7 @@ export const loadBlog = (id,setBlog,mounted,setError,loadingStarted,loadingFinis
 
 export const loadTranslation = (id,setBlog,mounted,setError,loadingStarted,loadingFinished) =>{
     loadingStarted();
-    fetch(`http://localhost:8000/getArabicBlog?blogId=${id}`,{
+    fetch(proxyUrl + `https://rouqaya-api.herokuapp.com/getArabicBlog?blogId=${id}`,{
         method : 'GET',
         headers : {
             'Accept': 'application/json',
@@ -34,7 +36,7 @@ export const loadTranslation = (id,setBlog,mounted,setError,loadingStarted,loadi
             if(res.success){
                 setBlog(res.blog); 
             }else{
-                setBlog({title : "لا يوجد ترجمة", content : "سوف نقوم بالترجمة بأسرع وقت"});
+                setBlog({title : "لا يوجد ترجمة", content : "سوف نقوم بترجمة هذه المدونة بأسرع وقت"});
             }
         }
         loadingFinished();

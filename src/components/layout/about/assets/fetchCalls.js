@@ -1,6 +1,8 @@
+const proxyUrl = "https://aqueous-coast-32163.herokuapp.com/";
+
 export const loadAboutContent = (setContent,setError,mounted,loadingStarted,loadingFinished) =>{
     loadingStarted();
-    fetch(`http://localhost:8000/loadAbout`,{
+    fetch(proxyUrl + `https://rouqaya-api.herokuapp.com/loadAbout`,{
         method : 'GET',
         headers : {
             'Accept': 'application/json',
@@ -22,7 +24,7 @@ export const loadAboutContent = (setContent,setError,mounted,loadingStarted,load
 
 export const loadAboutTranslation = (setContent,setError,mounted,loadingStarted,loadingFinished) =>{
     loadingStarted();
-    fetch(`http://localhost:8000/loadAboutTranslation`,{
+    fetch(proxyUrl + `https://rouqaya-api.herokuapp.com/loadAboutTranslation`,{
         method : 'GET',
         headers : {
             'Accept': 'application/json',

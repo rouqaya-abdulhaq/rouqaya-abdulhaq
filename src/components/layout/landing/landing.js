@@ -9,10 +9,11 @@ const LandingPage = (props) => {
     const [hasError, setError] = useState(false);
     const [blogs, setBlogs] = useState([]);
     
-    
+    const proxyUrl = "https://aqueous-coast-32163.herokuapp.com/";
+
     useEffect(() => {
         let mounted = true;
-        fetch(`http://localhost:8000/loadLastBlogs`,{
+        fetch(proxyUrl + `https://rouqaya-api.herokuapp.com/loadLastBlogs`,{
         method : 'GET',
         headers : {
             'Accept': 'application/json',
