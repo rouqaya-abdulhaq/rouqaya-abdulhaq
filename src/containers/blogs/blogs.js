@@ -23,8 +23,10 @@ export class Blogs extends React.Component{
         this.getBlogsCount();
     }
 
+    proxyUrl = "https://aqueous-coast-32163.herokuapp.com/";
+
     getBlogsCount = () =>{
-        fetch(`http://localhost:8000/getBlogsCount`,{
+        fetch(this.proxyUrl + `https://rouqaya-api.herokuapp.com/getBlogsCount`,{
             method : 'GET',
             headers : {
                 'Accept': 'application/json',
@@ -42,7 +44,7 @@ export class Blogs extends React.Component{
 
     fetchBlogs = () =>{
         this.props.loadingStarted();
-        fetch(`http://localhost:8000/loadBlogs?loadCount=${this.state.loadCount}`,{
+        fetch(this.proxyUrl + `https://rouqaya-api.herokuapp.com/loadBlogs?loadCount=${this.state.loadCount}`,{
             method : 'GET',
             headers : {
                 'Accept': 'application/json',

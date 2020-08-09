@@ -22,8 +22,10 @@ class projects extends React.Component {
         this.getProjectsCount();
     }
 
+    proxyUrl = "https://aqueous-coast-32163.herokuapp.com/";
+
     getProjectsCount = () =>{
-        fetch(`http://localhost:8000/getProjectsCount`,{
+        fetch(this.proxyUrl + `https://rouqaya-api.herokuapp.com/getProjectsCount`,{
             method : 'GET',
             headers : {
                 'Accept': 'application/json',
@@ -41,7 +43,7 @@ class projects extends React.Component {
 
     fetchProjects = () =>{
         this.props.loadingStarted();
-        fetch(`http://localhost:8000/loadProjects?loadCount=${this.state.loadCount}`,{
+        fetch(this.proxyUrl + `https://rouqaya-api.herokuapp.com/loadProjects?loadCount=${this.state.loadCount}`,{
             method : 'GET',
             headers : {
                 'Accept': 'application/json',
