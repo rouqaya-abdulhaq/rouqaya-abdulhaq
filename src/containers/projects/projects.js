@@ -78,9 +78,9 @@ class projects extends React.Component {
     render(){
         const disaplePrevBtn = this.state.loadCount <= 0 ? "true" : null;
         const disapleNextBtn = this.state.loadCount >= this.state.projectsCount ? "true" : null;
-        let projectToRender = null
+        let projectToRender = this.state.hasErr ? <ServerErr data="projects"/> : <p className="empty">No Projects To Show</p>
         if(this.state.projects.length > 0){
-            projectToRender = this.state.hasErr ?  <ServerErr data="projects"/>: this.state.projects.map((project)=>{
+            projectToRender = this.state.projects.map((project)=>{
                 return <ProjectCard info={project.info} projectLink={project.url}
                 GitHubFiles={project.github} title={project.title} imgPath={project.img_url}
                 key={project.id}/>

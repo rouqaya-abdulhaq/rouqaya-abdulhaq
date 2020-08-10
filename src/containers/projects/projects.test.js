@@ -124,4 +124,19 @@ describe('<Projects />',()=>{
         });
         expect(wrapper.find(Spinner)).toHaveLength(0);
     });
+
+    it('should handle empty blogs state',()=>{
+        const wrapper = shallow(<Projects isLoading={false} loadingStarted={()=>{return null}} loadingFinished={()=>{return null}}/>, {
+            wrappingComponent : BrowserRouter
+        });
+        expect(wrapper.find('.empty'));
+    })
+
+    it('should not render empty blogs p',()=>{
+        const wrapper = shallow(<Projects isLoading={false} loadingStarted={()=>{return null}} loadingFinished={()=>{return null}}/>, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().setState({projects : [{test : "test"}]});
+        expect(wrapper.find('.empty')).toHaveLength(0);
+    })
 });
