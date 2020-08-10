@@ -122,4 +122,19 @@ describe('<Blogs/>',()=>{
         });
         expect(wrapper.find(Spinner)).toHaveLength(0);
     });
+
+    it('should handle empty blogs state',()=>{
+        const wrapper = shallow(<Blogs isLoading={false} loadingStarted={()=>{return null}} loadingFinished={()=>{return null}}/>, {
+            wrappingComponent : BrowserRouter
+        });
+        expect(wrapper.find('.empty'));
+    })
+
+    it('should not render empty blogs p',()=>{
+        const wrapper = shallow(<Blogs isLoading={false} loadingStarted={()=>{return null}} loadingFinished={()=>{return null}}/>, {
+            wrappingComponent : BrowserRouter
+        });
+        wrapper.instance().setState({blogs : [{test : "test"}]});
+        expect(wrapper.find('.empty')).toHaveLength(0);
+    })
 });
