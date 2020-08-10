@@ -79,7 +79,7 @@ class projects extends React.Component {
         const disaplePrevBtn = this.state.loadCount <= 0 ? "true" : null;
         const disapleNextBtn = this.state.loadCount >= this.state.projectsCount ? "true" : null;
         let projectToRender = null
-        if(this.state.projects){
+        if(this.state.projects.length > 0){
             projectToRender = this.state.hasErr ?  <ServerErr data="projects"/>: this.state.projects.map((project)=>{
                 return <ProjectCard info={project.info} projectLink={project.url}
                 GitHubFiles={project.github} title={project.title} imgPath={project.img_url}

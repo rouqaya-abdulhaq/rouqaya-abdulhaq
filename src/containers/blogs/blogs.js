@@ -79,8 +79,8 @@ export class Blogs extends React.Component{
     render(){
         const disaplePrevBtn = this.state.loadCount <= 0 ? "true" : null;
         const disapleNextBtn = this.state.loadCount >= this.state.blogsCount ? "true" : null;
-        let blogToRender = null
-        if(this.state.blogs){
+        let blogToRender = <p>No Blogs To Show</p>
+        if(this.state.blogs.length > 0){
             blogToRender = this.state.hasErr ? <ServerErr data="blogs"/> : mapBlogsToCards(this.state.blogs,this.props.history);
         }
 
