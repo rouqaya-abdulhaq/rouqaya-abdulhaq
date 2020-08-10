@@ -13,6 +13,8 @@ export const loadAboutContent = (setContent,setError,mounted,loadingStarted,load
         if(mounted){
             if(res.success){
                 setContent(res.about.content);
+            }else{
+                setContent("an Error must have occurred.\n the server didn't provide the content")
             }
         }
         loadingFinished();
@@ -35,6 +37,8 @@ export const loadAboutTranslation = (setContent,setError,mounted,loadingStarted,
         if(mounted){
             if(res.success){
                 setContent(res.about.content);
+            }else{
+                setContent("الترجمة غير متوفرة حاليا")
             }
         }
         loadingFinished();

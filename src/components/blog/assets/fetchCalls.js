@@ -13,6 +13,8 @@ export const loadBlog = (id,setBlog,mounted,setError,loadingStarted,loadingFinis
         if(mounted){
             if(res.success){
                 setBlog(res.blog); 
+            }else{
+                setBlog({title : "Error",content : "blog was not provided by server"});
             }
         }
         loadingFinished();
