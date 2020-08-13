@@ -12,7 +12,7 @@ const card = (props) =>{
         <div className="card" onClick={props.onClick}>
             {img}
             <div className="projInfo">
-                <p>{props.title}</p>
+                <p className="title">{props.title}</p>
                 <p>{props.info}</p>
                 <ProjectLink to={props.projectLink}/>
                 <ProjectLink to={props.GitHubFiles}/>
