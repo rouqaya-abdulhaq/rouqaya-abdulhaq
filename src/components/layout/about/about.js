@@ -19,15 +19,18 @@ const About = (props) => {
         setTranslate(!translate);
     }
 
+    const loadingStarted = props.loadingStarted;
+    const loadingFinished = props.loadingFinished;
+
     useEffect(() => {
         let mounted = true;
         if(!translate){
-            loadAboutContent(setContent,setError,mounted,props.loadingStarted,props.loadingFinished);
+            loadAboutContent(setContent,setError,mounted,loadingStarted,loadingFinished);
         }else if(translate){
-            loadAboutTranslation(setContent,setError,mounted,props.loadingStarted,props.loadingFinished);
+            loadAboutTranslation(setContent,setError,mounted,loadingStarted,loadingFinished);
         }
         return () => mounted = false;
-    },[translate,hasError,props.loadingStarted,props.loadingFinished]);
+    },[translate,hasError,loadingStarted,loadingFinished]);
 
     const translationBtn = translate ? <Button onClick={translateHandler} value="English"/> : <Button onClick={translateHandler} value="العربية"/>
     const socialP = translate ? " : تابعني على مواقع التواصل الإجتماعي" : "you can find me here on the internet :"

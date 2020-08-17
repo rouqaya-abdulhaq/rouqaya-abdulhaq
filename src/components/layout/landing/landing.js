@@ -30,7 +30,7 @@ const LandingPage = (props) => {
             setError(err);
         });
         return () => mounted = false;
-    });
+    },[]);
 
     let blogsToRender = [];
     if(blogs){

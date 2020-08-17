@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Btn from '../UI/buttons/button/button';
 import {withRouter} from 'react-router-dom';
 import {FacebookShareButton,TwitterShareButton,LinkedinShareButton} from 'react-share';
@@ -20,6 +20,9 @@ const Blog = withRouter(({history,location, ...props}) =>{
 
     const values = queryString.parse(location.search);
 
+    const loadingStarted = props.loadingStarted;
+    const loadingFinished = props.loadingFinished;
+
     const backEventHandler = () =>{
          history.goBack();
     }
@@ -31,12 +34,12 @@ const Blog = withRouter(({history,location, ...props}) =>{
     useEffect(() => {
         let mounted = true;
         if(!translate){
-            loadBlog(values.id,setBlog,mounted,setError,props.loadingStarted,props.loadingFinished);
+            loadBlog(values.id,setBlog,mounted,setError,loadingStarted,loadingFinished);
         }else if (translate){
-            loadTranslation(values.id,setBlog,mounted,setError,props.loadingStarted,props.loadingFinished);
+            loadTranslation(values.id,setBlog,mounted,setError,loadingStarted,loadingFinished);
         }
         return () => mounted = false;
-    },[values.id,translate,props.loadingStarted,props.loadingFinished]); 
+    },[values.id,translate,loadingStarted,loadingFinished]); 
 
     const translationBtn = translate ? <Btn onClick={translateHandler} value="English"/> : <Btn onClick={translateHandler} value="العربية"/>
 
