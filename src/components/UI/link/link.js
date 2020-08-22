@@ -4,7 +4,7 @@ import './link.css';
 const link = (props) =>{
     return(
         <div className="link">
-            {props.to}
+            <a href={props.to} rel="noopener noreferrer" target="_blank"><i>{props.value}</i></a>
         </div>
     );
 }

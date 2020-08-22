@@ -14,8 +14,8 @@ const card = (props) =>{
             <div className="projInfo">
                 <p className="title">{props.title}</p>
                 <p>{props.info}</p>
-                <ProjectLink to={props.projectLink}/>
-                <ProjectLink to={props.GitHubFiles}/>
+                <ProjectLink to={props.projectLink} value="url"/>
+                <ProjectLink to={props.GitHubFiles} value="github source"/>
             </div>
         </div>
     );
