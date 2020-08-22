@@ -75,6 +75,10 @@ class projects extends React.Component {
         }
     }
 
+    goToProject = (projectUrl) =>{
+        window.open(projectUrl,"_blank");
+    }
+
     render(){
         const disaplePrevBtn = this.state.loadCount <= 0 ? "true" : null;
         const disapleNextBtn = this.state.loadCount >= this.state.projectsCount ? "true" : null;
@@ -83,7 +87,8 @@ class projects extends React.Component {
             projectToRender = this.state.projects.map((project)=>{
                 return <ProjectCard info={project.info} projectLink={project.url}
                 GitHubFiles={project.github} title={project.title} imgPath={project.img_url}
-                key={project.id}/>
+                key={project.id}
+                onClick={()=>this.goToProject(project.url)}/>
             })
         }
 
