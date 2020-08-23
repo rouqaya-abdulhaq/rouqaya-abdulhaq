@@ -5,7 +5,6 @@
     display: flex;
     margin-bottom: 2vh;
     margin-right: 2vw;
-    cursor: pointer;
     color: white;
 }
 
@@ -22,4 +21,8 @@
 .projInfo{
     display: flex;
     flex-direction: column;
+}
+
+.clickable{
+    cursor: pointer;
 }

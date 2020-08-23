@@ -8,14 +8,25 @@ const card = (props) =>{
         img = <img src={props.imgPath} alt="thumbnail"/>
     }
 
+    let clickable = "";
+    let url = <ProjectLink to={props.projectLink} value="url"/>;
+    let github = <ProjectLink to={props.GitHubFiles} value="github source"/>
+
+    if(props.blog)
+    {
+        clickable = "clickable";
+        url = null;
+        github = null;
+    }
+
     return(
-        <div className="card" onClick={props.onClick}>
+        <div className={`card ${clickable}`}  onClick={props.onClick}>
             {img}
             <div className="projInfo">
                 <p className="title">{props.title}</p>
                 <p>{props.info}</p>
-                <ProjectLink to={props.projectLink} value="url"/>
-                <ProjectLink to={props.GitHubFiles} value="github source"/>
+                {url}
+                {github}
             </div>
         </div>
     );
