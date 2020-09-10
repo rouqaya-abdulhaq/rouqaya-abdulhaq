@@ -83,6 +83,7 @@ class projects extends React.Component {
             projectToRender = this.state.projects.map((project)=>{
                 return <ProjectCard info={project.info} projectLink={project.url}
                 GitHubFiles={project.github} title={project.title} imgPath={project.img_url}
+                disableUrl={project.disableUrl}
                 key={project.id}/>
             })
         }

@@ -9,7 +9,7 @@ const card = (props) =>{
     }
 
     let clickable = "";
-    let url = <ProjectLink to={props.projectLink} value="url"/>;
+    let url = props.disableUrl? <p>Not Deployed yet</p> : <ProjectLink to={props.projectLink} value="url"/>;
     let github = <ProjectLink to={props.GitHubFiles} value="github source"/>
 
     if(props.blog)
