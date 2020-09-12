@@ -3,6 +3,7 @@ import ProjectLink from '../link/link';
 import './card.css';
 
 const card = (props) =>{
+    
     let img = null;
     if(props.imgPath){
         img = <img src={props.imgPath} alt="thumbnail"/>

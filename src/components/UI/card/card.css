@@ -23,6 +23,11 @@
     flex-direction: column;
 }
 
+.projInfo p{
+    margin-left: 3vw;
+    font-weight: bold;
+}
+
 .clickable{
     cursor: pointer;
 }
